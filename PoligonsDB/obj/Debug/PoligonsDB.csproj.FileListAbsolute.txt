@@ -1,0 +1,17 @@
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.csproj.AssemblyReference.cache
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.FrmMain.resources
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.Properties.Resources.resources
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.csproj.GenerateResource.cache
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.csproj.CoreCompileInputs.cache
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\PoligonsDB.exe.config
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\PoligonsDB.exe
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\PoligonsDB.pdb
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\EntityFramework.dll
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\EntityFramework.xml
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\bin\Debug\System.Security.Cryptography.ProtectedData.xml
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.csproj.Up2Date
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.exe
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.pdb
