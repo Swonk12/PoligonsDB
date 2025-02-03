@@ -47,6 +47,31 @@ namespace PoligonsDB.CLASSES
 
         }
 
+        public ClPoligons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor)
+        {
+
+            DataSet xdset = new DataSet();
+            String xsql = $"INSERT INTO Pentagons (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
+
+            if (xbd.executarOrdre(xsql))
+            {
+                // Si la inserció ha anat bé recuperem l'Id generat perquè el necessitem per a fer la inserció en la taula de la subclasse
+                // ALERTA!!!! En un entorn multiusuari, aquesta operació s'hauria de fer amb una TRANSACTION per a garantir que el resultat és correcte
+                xsql = "SELECT TOP 1 Id FROM Poligon ORDER BY Id DESC";
+                xbd.getDades(xsql, xdset);
+                if (xdset.Tables[0].Rows.Count == 0)
+                {
+                    id_Poligon = -1;
+                    MessageBox.Show("No s'ha pogut recuperar l'Id del nou poligons", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                }
+            }
+        }
+
+
         public String dadesComunes()
         {
             // retorna una string amb les dades comunes a tots els personatges
@@ -71,6 +96,6 @@ namespace PoligonsDB.CLASSES
         public abstract String dadesPoligon();
         public abstract Boolean eliminarPoligon();
         public abstract Boolean getPoligons(ClBd bd, int id);
-        //public abstract Boolean inserirPoligon();
+        public abstract Boolean inserirPoligon();
     }
 }

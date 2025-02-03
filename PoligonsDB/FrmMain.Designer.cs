@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.lbGrup = new System.Windows.Forms.Label();
             this.cbPoligon = new System.Windows.Forms.ComboBox();
@@ -100,7 +100,7 @@
             this.tbInfo.Location = new System.Drawing.Point(553, 113);
             this.tbInfo.Multiline = true;
             this.tbInfo.Name = "tbInfo";
-            this.tbInfo.Size = new System.Drawing.Size(513, 629);
+            this.tbInfo.Size = new System.Drawing.Size(513, 278);
             this.tbInfo.TabIndex = 9;
             // 
             // dgPoligons
@@ -108,9 +108,9 @@
             this.dgPoligons.AllowUserToAddRows = false;
             this.dgPoligons.AllowUserToDeleteRows = false;
             this.dgPoligons.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgPoligons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgPoligons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPoligons.Location = new System.Drawing.Point(12, 113);
@@ -122,6 +122,7 @@
             this.dgPoligons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPoligons.Size = new System.Drawing.Size(535, 629);
             this.dgPoligons.TabIndex = 10;
+            this.dgPoligons.SelectionChanged += new System.EventHandler(this.dgPoligons_SelectionChanged);
             // 
             // pbAdd
             // 
@@ -149,6 +150,7 @@
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.ResumeLayout(false);
