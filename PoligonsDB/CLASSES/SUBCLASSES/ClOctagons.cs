@@ -9,26 +9,26 @@ using System.Windows.Forms;
 
 namespace PoligonsDB.CLASSES.SUBCLASSES
 {
-    internal class ClPentagons : ClPoligons
+    internal class ClOctagons : ClPoligons
     {
         public string nom { get; set; }
         public double lado { get; set; }
-        public double apotema { get; set; } 
+        public double apotema { get; set; }
         public double area { get; set; }
         public double perimetre { get; set; }
         public int color { get; set; }
 
-        public ClPentagons(ClBd xbd, int xid) : base(xbd, xid)
+        public ClOctagons(ClBd xbd, int xid) : base(xbd, xid)
         {
             getPoligons(xbd, xid);
         }
 
-        public ClPentagons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xnom, xlado, xapotema, xarea, xperimetre, xcolor)
+        public ClOctagons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xnom, xlado, xapotema, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Pentagons (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
+            String xsql = $"INSERT INTO Octagons (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
             if (xbd.executarOrdre(xsql))
             {
-                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Octagon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -48,6 +48,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             return xs;
         }
 
+
         public override bool eliminarPoligon()
         {
             Boolean xb = false;
@@ -62,7 +63,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             String xsql = "";
             DataSet xdset = new DataSet();
 
-            xsql = $"SELECT * FROM Pentagons WHERE id_Poligon='{id}'";
+            xsql = $"SELECT * FROM Octagons WHERE id_Poligon='{id}'";
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
             {
                 nom = (string)xdset.Tables[0].Rows[0].ItemArray[2];
@@ -79,7 +80,5 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         {
             throw new NotImplementedException();
         }
-
-
     }
 }

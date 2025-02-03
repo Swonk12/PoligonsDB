@@ -63,6 +63,7 @@
     <Compile Include="CLASSES\ClBd.cs" />
     <Compile Include="CLASSES\ClPoligons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClHexagons.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClOctagons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClPentagons.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>

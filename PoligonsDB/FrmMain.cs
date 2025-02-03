@@ -30,8 +30,8 @@
                 //List<ClTriangles_Isosceles> llTriangles_Isosceles { get; set; } = new List<ClTriangles_Isosceles>();
                 //List<ClRombes> llRombes { get; set; } = new List<ClRombes>();
                 List<ClPentagons> llPentagons { get; set; } = new List<ClPentagons>();
-                //List<ClHexagons> llHexagons { get; set; } = new List<ClHexagons>();
-                //List<ClOctagons> llOctagons { get; set; } = new List<ClOctagons>();
+                List<ClHexagons> llHexagons { get; set; } = new List<ClHexagons>();
+                List<ClOctagons> llOctagons { get; set; } = new List<ClOctagons>();
 
 
                 public FrmMain()
@@ -123,17 +123,17 @@
                                 p = new ClPentagons(bd, id);
                                 llPentagons.Add((ClPentagons)p);
                                 break;
-                            case "Hexagons":
-                                //p = new ClHexagon(bd, id);
-                                //llHexagons.Add((ClHexagon)p);
+                            case "Hexagon":
+                                p = new ClHexagons(bd, id);
+                                llHexagons.Add((ClHexagons)p);
                                 break;
-                            case "Octagons":
-                                //p = new ClOctagon(bd, id);
-                                //llOctagons.Add((ClOctagon)p);
+                            case "Octagon":
+                                p = new ClOctagons(bd, id);
+                                llOctagons.Add((ClOctagons)p);
                                 break;
 
                         }
-                        if (fila.Cells["tipus"].Value.ToString() == "Pentagon")
+                        if (fila.Cells["tipus"].Value.ToString() == "Pentagon" || fila.Cells["tipus"].Value.ToString() == "Hexagon" || fila.Cells["tipus"].Value.ToString() == "Octagon")
                         {
                             p.id_Poligon = id;
                             p.tipus = fila.Cells["tipus"].Value.ToString();
@@ -185,8 +185,8 @@
                     //llTriangles_Isosceles.Clear();
                     //llRombes.Clear();
                     llPentagons.Clear();
-                    //llHexagons.Clear();
-                    //llOctagons.Clear();
+                    llHexagons.Clear();
+                    llOctagons.Clear();
                 }
 
                 private void dgPoligons_SelectionChanged(object sender, EventArgs e)
@@ -224,6 +224,12 @@
                 {
                     foreach (DataGridViewRow fila in dgPoligons.Rows)
                     {
+                        int xCentro = tbInfo.Left + tbInfo.Width / 2;
+                        int yCentro = tbInfo.Bottom + 50;
+                        int lado = 0;
+                        string info, info2, info2Color;
+                        string[] partes;
+                        Graphics g = e.Graphics;
                         switch (fila.Cells["tipus"].Value.ToString())
                         {
                             case "Quadrats":
@@ -255,19 +261,15 @@
                                 //llRombes.Add((ClRombe)p);
                                 break;
                             case "Pentagon":
-                                int xCentro = tbInfo.Left + tbInfo.Width / 2;
-                                int yCentro = tbInfo.Bottom + 50;
+                                info = tbInfo.Text;
+                                partes = info.Split(':');
+                                info2 = partes[5].Replace("\r\nApotema", "");
+                                lado = int.Parse(info2.Trim());
 
-                                string info = tbInfo.Text;
-                                string[] partes = info.Split(':');
-                                string info2 = partes[5].Replace("\r\nApotema", "");
-                                int lado = int.Parse(info2.Trim());
-
-                                string info2Color = partes[3].Replace("\r\nNom", "");
+                                info2Color = partes[3].Replace("\r\nNom", "");
 
                                 // Calcular los puntos del pentágono
                                 Point[] vPuntsPentagon = CalcularPuntosPentagono(xCentro, yCentro, lado);
-                                Graphics g = e.Graphics;
                                 if (info2Color.Trim() == "TRUE")
                                 {
                                     Brush brush = new SolidBrush(Color.Blue);
@@ -283,12 +285,47 @@
 
                                 break;
                             case "Hexagons":
-                                //p = new ClHexagon(bd, id);
-                                //llHexagons.Add((ClHexagon)p);
+                                info = tbInfo.Text;
+                                partes = info.Split(':');
+                                info2 = partes[5].Replace("\r\nApotema", "");
+                                lado = int.Parse(info2.Trim());
+
+                                info2Color = partes[3].Replace("\r\nNom", "");
+                                Point[] vPuntsHexagono = CalcularPuntosHexagono(xCentro, yCentro, lado);
+                                
+                                if (info2Color.Trim() == "TRUE")
+                                {
+                                    Brush brush = new SolidBrush(Color.Blue);
+                                    g.FillPolygon(brush, vPuntsHexagono);
+                                    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsHexagono);
+                                }
+                                else 
+                                { 
+                                    Pen pen = new Pen(Color.Black, 2);
+                                    g.DrawPolygon(pen, vPuntsHexagono);
+                                }
+
                                 break;
                             case "Octagons":
-                                //p = new ClOctagon(bd, id);
-                                //llOctagons.Add((ClOctagon)p);
+                                info = tbInfo.Text;
+                                partes = info.Split(':');
+                                info2 = partes[5].Replace("\r\nApotema", "");
+                                lado = int.Parse(info2.Trim());
+
+                                info2Color = partes[3].Replace("\r\nNom", "");
+                                Point[] vPuntsOctagono = CalcularPuntosOctagono(xCentro, yCentro, lado);
+                                
+                                if (info2Color.Trim() == "TRUE")
+                                {
+                                    Brush brush = new SolidBrush(Color.Blue);
+                                    g.FillPolygon(brush, vPuntsOctagono);
+                                    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsOctagono);
+                                }
+                                else 
+                                { 
+                                    Pen pen = new Pen(Color.Black, 2);
+                                    g.DrawPolygon(pen, vPuntsOctagono);
+                                }
                                 break;
                         }
                     }
@@ -297,13 +334,45 @@
                 Point[] CalcularPuntosPentagono(int xCentro, int yCentro, int lado)
                 {
                     Point[] puntos = new Point[5];
-                    double anguloInicial = -Math.PI / 2; // Inicia en la parte superior
-                    double anguloIncremento = 2 * Math.PI / 5; // Ángulo entre cada vértice
+                    double anguloInicial = -Math.PI / 2; 
+                    double anguloIncremento = 2 * Math.PI / 5; 
 
                     for (int i = 0; i < 5; i++)
                     {
                         double x = xCentro + (lado / (2 * Math.Sin(Math.PI / 5))) * Math.Cos(anguloInicial + i * anguloIncremento);
                         double y = yCentro + (lado / (2 * Math.Sin(Math.PI / 5))) * Math.Sin(anguloInicial + i * anguloIncremento);
+                        puntos[i] = new Point((int)x, (int)y);
+                    }
+
+                    return puntos;
+                }
+
+                Point[] CalcularPuntosHexagono(int xCentro, int yCentro, int lado)
+                {
+                    Point[] puntos = new Point[6];
+                    double anguloInicial = -Math.PI / 2; 
+                    double anguloIncremento = 2 * Math.PI / 6;
+
+                    for (int i = 0; i < 6; i++)
+                    {
+                        double x = xCentro + (lado * Math.Cos(anguloInicial + i * anguloIncremento));
+                        double y = yCentro + (lado * Math.Sin(anguloInicial + i * anguloIncremento));
+                        puntos[i] = new Point((int)x, (int)y);
+                    }
+
+                    return puntos;
+                }
+
+                Point[] CalcularPuntosOctagono(int xCentro, int yCentro, int lado)
+                {
+                    Point[] puntos = new Point[8];
+                    double anguloInicial = -Math.PI / 2;
+                    double anguloIncremento = 2 * Math.PI / 8; 
+
+                    for (int i = 0; i < 8; i++)
+                    {
+                        double x = xCentro + (lado * Math.Cos(anguloInicial + i * anguloIncremento));
+                        double y = yCentro + (lado * Math.Sin(anguloInicial + i * anguloIncremento));
                         puntos[i] = new Point((int)x, (int)y);
                     }
 
