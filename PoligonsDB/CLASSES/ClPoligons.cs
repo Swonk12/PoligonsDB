@@ -94,7 +94,7 @@ namespace PoligonsDB.CLASSES
 
         // els mètodes abstract s'hauran de definir obligatòriament en cada una de les subclasses
         public abstract String dadesPoligon();
-        public abstract Boolean eliminarPoligon();
+        public abstract Boolean eliminarPoligon(ClBd bd, int id);
         public abstract Boolean getPoligons(ClBd bd, int id);
         public abstract Boolean inserirPoligon();
     }

@@ -65,6 +65,12 @@
     <Compile Include="CLASSES\SUBCLASSES\ClHexagons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClOctagons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClPentagons.cs" />
+    <Compile Include="FORMULARIS\FrmAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIS\FrmAdd.Designer.cs">
+      <DependentUpon>FrmAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FORMULARIS\FrmAdd.resx">
+      <DependentUpon>FrmAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

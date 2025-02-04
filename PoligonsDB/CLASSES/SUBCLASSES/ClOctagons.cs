@@ -49,10 +49,17 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         }
 
 
-        public override bool eliminarPoligon()
+        public override bool eliminarPoligon(ClBd bd, int id)
         {
             Boolean xb = false;
+            String xsql = "";
+            DataSet xdset = new DataSet();
 
+            xsql = $"DELETE FROM Octagons WHERE id_Poligon='{id}";
+            if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
+            {
+                xb = true;
+            }
             // pendent de codificar
             return xb;
         }

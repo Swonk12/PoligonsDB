@@ -210,16 +210,6 @@
                     }
                 }
 
-                private void pbAdd_Click(object sender, EventArgs e)
-                {
-                    //FrmAdd fAdd = new FrmAdd(bd);
-
-                    //fAdd.ShowDialog();
-                    //fAdd.Dispose();
-                    //fAdd = null;
-                    getPoligons(cbPoligon.SelectedIndex == 0);
-                }
-
                 private void FrmMain_Paint(object sender, PaintEventArgs e)
                 {
                     foreach (DataGridViewRow fila in dgPoligons.Rows)
@@ -377,6 +367,27 @@
                     }
 
                     return puntos;
+                }
+
+                private void pbAdd_Click(object sender, EventArgs e)
+                {
+                    //FrmAdd fAdd = new FrmAdd("A", bd);
+
+                    //fAdd.ShowDialog();
+                    //fAdd.Dispose();
+                    //fAdd = null;
+                    getPoligons(cbPoligon.SelectedIndex == 0);
+                }
+
+
+                private void pbDel_Click(object sender, EventArgs e)
+                {
+                    //FrmAdd fAdd = new FrmAdd("B", bd);
+
+                    //fAdd.ShowDialog();
+                    //fAdd.Dispose();
+                    //fAdd = null;
+                    getPoligons(cbPoligon.SelectedIndex == 0);
                 }
             }
         }

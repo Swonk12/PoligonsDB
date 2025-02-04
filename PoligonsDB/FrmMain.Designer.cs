@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.lbGrup = new System.Windows.Forms.Label();
             this.cbPoligon = new System.Windows.Forms.ComboBox();
@@ -37,8 +37,10 @@
             this.tbInfo = new System.Windows.Forms.TextBox();
             this.dgPoligons = new System.Windows.Forms.DataGridView();
             this.pbAdd = new System.Windows.Forms.PictureBox();
+            this.pbDel = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDel)).BeginInit();
             this.SuspendLayout();
             // 
             // lbGrup
@@ -108,9 +110,9 @@
             this.dgPoligons.AllowUserToAddRows = false;
             this.dgPoligons.AllowUserToDeleteRows = false;
             this.dgPoligons.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgPoligons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgPoligons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPoligons.Location = new System.Drawing.Point(12, 113);
@@ -135,11 +137,23 @@
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             // 
+            // pbDel
+            // 
+            this.pbDel.Image = ((System.Drawing.Image)(resources.GetObject("pbDel.Image")));
+            this.pbDel.Location = new System.Drawing.Point(994, 748);
+            this.pbDel.Name = "pbDel";
+            this.pbDel.Size = new System.Drawing.Size(51, 52);
+            this.pbDel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDel.TabIndex = 12;
+            this.pbDel.TabStop = false;
+            this.pbDel.Click += new System.EventHandler(this.pbDel_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1091, 808);
+            this.Controls.Add(this.pbDel);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.dgPoligons);
             this.Controls.Add(this.tbInfo);
@@ -153,6 +167,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +182,7 @@
         private System.Windows.Forms.TextBox tbInfo;
         private System.Windows.Forms.DataGridView dgPoligons;
         private System.Windows.Forms.PictureBox pbAdd;
+        private System.Windows.Forms.PictureBox pbDel;
     }
 }
 
