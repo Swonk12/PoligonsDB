@@ -45,7 +45,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool eliminarPoligon(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"DELETE FROM Quadrats WHERE id_Poligon='{id}'";
+            String xsql = $"DELETE FROM Quadrats WHERE id_Quadrat='{id}'";
             DataSet xdset = new DataSet();
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
@@ -58,7 +58,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool getPoligons(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"SELECT * FROM Quadrats WHERE id_Poligon='{id}'";
+            String xsql = $"SELECT * FROM Quadrats WHERE id_Quadrat ='{id}'";
             DataSet xdset = new DataSet();
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)

@@ -120,6 +120,92 @@ namespace PoligonsDB.CLASSES
             }
         }
 
+        // Cercle
+        public ClPoligons(ClBd xbd, double xradio, string xnom,  double xarea, double xperimetre, int xcolor)
+        {
+            DataSet xdset = new DataSet();
+            string xsql = $"INSERT INTO Cercles (id_Poligon, nom, radio, area, perimetre, color) " +
+                          $"VALUES({id_Poligon}, '{xnom}', {xradio}, {xarea}, {xperimetre}, {xcolor})";
+
+            if (xbd.executarOrdre(xsql))
+            {
+                // Recuperar el Id generado
+                xsql = "SELECT TOP 1 Id FROM Poligons ORDER BY Id DESC";
+                xbd.getDades(xsql, xdset);
+                if (xdset.Tables[0].Rows.Count == 0)
+                {
+                    id_Poligon = -1;
+                    MessageBox.Show("No s'ha pogut recuperar l'Id del nou cercle", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                }
+            }
+        }
+
+        // Elipse
+        public ClPoligons(ClBd xbd, int xcolor, string xnom, double xradioMayor, double xradioMenor, double xarea, double xperimetre)
+        {
+            DataSet xdset = new DataSet();
+            string xsql = $"INSERT INTO Elipses (id_Poligon, nom, radio_mayor, radio_menor, area, perimetre, color) " +
+                          $"VALUES({id_Poligon}, '{xnom}', {xradioMayor}, {xradioMenor}, {xarea}, {xperimetre}, {xcolor})";
+
+            if (xbd.executarOrdre(xsql))
+            {
+                // Recuperar el Id generado
+                xsql = "SELECT TOP 1 Id FROM Poligons ORDER BY Id DESC";
+                xbd.getDades(xsql, xdset);
+                if (xdset.Tables[0].Rows.Count == 0)
+                {
+                    id_Poligon = -1;
+                    MessageBox.Show("No s'ha pogut recuperar l'Id de la nova el·lipse", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                }
+            }
+        }
+
+        // Triangle_Rectangle
+
+        // Triangle_Isosceles
+        public ClPoligons(ClBd xbd, string xnom, double xbase, double xaltura, double xarea, ,int xcolor, double xperimetre)
+        {
+            // Crear un DataSet para manejar la consulta
+            DataSet xdset = new DataSet();
+
+            // 1. Primero, insertamos el triángulo isósceles en la tabla Triangles_Isosceles
+            string xsql = $"INSERT INTO Triangles_Isosceles (id_Poligon, nom, base, altura, area, perimetre, color) " +
+                          $"VALUES({id_Poligon}, '{xnom}', {xbase}, {xaltura}, {xarea}, {xperimetre}, {xcolor})";
+
+            if (xbd.executarOrdre(xsql))
+            {
+                // 2. Si la inserción fue exitosa, recuperamos el id_Poligon generado
+                xsql = "SELECT TOP 1 Id FROM Poligons ORDER BY Id DESC";
+                xbd.getDades(xsql, xdset);
+
+                if (xdset.Tables[0].Rows.Count == 0)
+                {
+                    // Si no se recupera el id, mostramos un mensaje de error
+                    id_Poligon = -1;
+                    MessageBox.Show("No se ha podido recuperar el Id del nuevo polígono", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Si se recupera el id correctamente, asignamos el id_Poligon
+                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                }
+            }
+            else
+            {
+                // Si la inserción falla, mostramos un mensaje de error
+                MessageBox.Show("No se pudo insertar el triángulo isósceles en la base de datos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
 
 

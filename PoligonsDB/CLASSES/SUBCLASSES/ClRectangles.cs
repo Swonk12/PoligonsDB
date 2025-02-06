@@ -22,8 +22,8 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             getPoligons(xbd, xid);
         }
 
-        public ClRectangle(ClBd xbd, string xnom, double xancho, double xalto, double xarea, double xperimetre, int xcolor)
-            : base(xbd, xnom, xancho, xalto, xarea, xperimetre, xcolor)
+        public ClRectangle(ClBd xbd, double xalto, string xnom, double xancho, double xarea, double xperimetre, int xcolor)
+            : base(xbd, xancho, xnom, xalto, xarea, xperimetre, xcolor)
         {
             String xsql = $"INSERT INTO Rectangles (id_Poligon, nom, ancho, alto, area, perimetre, color) " +
                           $"VALUES({id_Poligon}, '{xnom}', {xancho}, {xalto}, {xarea}, {xperimetre}, {xcolor})";
@@ -50,7 +50,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool eliminarPoligon(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"DELETE FROM Rectangles WHERE id_Poligon='{id}'";
+            String xsql = $"DELETE FROM Rectangles WHERE id_Rectangle='{id}'";
             DataSet xdset = new DataSet();
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
@@ -63,7 +63,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool getPoligons(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"SELECT * FROM Rectangles WHERE id_Poligon='{id}'";
+            String xsql = $"SELECT * FROM Rectangles WHERE id_Rectangle='{id}'";
             DataSet xdset = new DataSet();
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)

@@ -22,6 +22,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                 DataSet dset { get; set; } = new DataSet();
                 //String cadenaConnexio = "Data Source=Vidallaptop;Initial Catalog=PoligonsBD;Integrated Security=True";
                 String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZt0PpACLEye0nls4yvFgAQAAAACAAAAAAAQZgAAAAEAACAAAACfiYECuEAFyofHsBt4jPIkK+ghmMpQlVHxWuo9hgxnGwAAAAAOgAAAAAIAACAAAADFlKTjjyXotH2DaVOOQhuGiInjKxNk7znYQ1db7siYSVAAAABfOk0PUD2QTWtnsyKF2ju9IWDmOJZYufQtfZCisX1dfuyZTpYOPg2VJX2LYu4cs4kJD+EAhDRKPxYLT6nZsM2rSXAs0lGJo7ie3Q1IXia0aEAAAAAGiZGSqbHu+f1xTRzK6f/OikdZy/v2yR6zI8Cc3dBpFN8Dlun+VXfMGwzGKStQYaKLllbbU0QdFf5KVuEW7WKt";
+                // Cadena Marc
+                // AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXVOCHU/ie0KxSzCJEKv98gQAAAACAAAAAAAQZgAAAAEAACAAAAAo5GPujPFhb4OVeXsT1Jb8tThXGkqDCkoF0Msm9KQdrgAAAAAOgAAAAAIAACAAAABVQ5spPkHxS734nQUhLf7vvGH4wZzvjhNj0Ys/9cB2clAAAABtqIiQzS3rQdkMlSYUwsUQ4LPmjK87wadqC+Nb517wC4dD++ZsQJIZKie3p7zLKeoSn3ViutsUq3riGGPV5pbAjE5jpvSFAv0N8V4vZzd0JkAAAABW90RTIuCZEQl4dA+NBOZgEzVOgqWlleruABji3RQDGHHe6TPxKmqknSopRYmc3SMPCLihLnVSQnIDS++LNTWe
 
                 // Listas
                 List<ClPoligons> llPoligons { get; set; } = new List<ClPoligons>();
@@ -65,7 +67,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                     if (xbTots)
                     {
-                        xsql = "SELECT \r\n    P.id_Poligon, \r\n    P.tipus,\r\n  COALESCE(Q.nom, R.nom, C.nom, E.nom, TR.nom, TI.nom, Ro.nom, Pe.nom, He.nom, Oc.nom) AS Nombre , COALESCE(Q.area, R.area, C.area, E.area, TR.area, TI.area, Ro.area, Pe.area, He.area, Oc.area) AS area,\r\n    COALESCE(Q.perimetre, R.perimetre, C.perimetre, E.perimetre, TR.perimetre, TI.perimetre, Ro.perimetre, Pe.perimetre, He.perimetre, Oc.perimetre) AS perimetre,\r\n    COALESCE(Q.color, R.color, C.color, E.color, TR.color, TI.color, Ro.color, Pe.color, He.color, Oc.color) AS color\r\nFROM Poligons P\r\nLEFT JOIN Quadrats Q ON P.id_Poligon = Q.id_Poligon\r\nLEFT JOIN Rectangles R ON P.id_Poligon = R.id_Poligon\r\nLEFT JOIN Cercles C ON P.id_Poligon = C.id_Poligon\r\nLEFT JOIN Elipses E ON P.id_Poligon = E.id_Poligon\r\nLEFT JOIN Triangles_Rectangles TR ON P.id_Poligon = TR.id_Poligon\r\nLEFT JOIN Triangles_Isosceles TI ON P.id_Poligon = TI.id_Poligon\r\nLEFT JOIN Rombes Ro ON P.id_Poligon = Ro.id_Poligon\r\nLEFT JOIN Pentagons Pe ON P.id_Poligon = Pe.id_Poligon\r\nLEFT JOIN Hexagons He ON P.id_Poligon = He.id_Poligon\r\nLEFT JOIN Octagons Oc ON P.id_Poligon = Oc.id_Poligon;\r\n";
+                        xsql = $"SELECT       P.id_Poligon,       P.tipus,   COALESCE(Q.id_Quadrat, R.id_Rectangle, C.id_Cercle, E.id_Elipse, TR.id_TriangleRect , TI.id_TriangleIso, Ro.id_Rombe , Pe.id_Pentagon, He.id_Hexagon , Oc.id_Octagon) AS idFigura , COALESCE(Q.nom, R.nom, C.nom, E.nom, TR.nom, TI.nom, Ro.nom, Pe.nom, He.nom, Oc.nom) AS Nombre , COALESCE(Q.area, R.area, C.area, E.area, TR.area, TI.area, Ro.area, Pe.area, He.area, Oc.area) AS area,      COALESCE(Q.perimetre, R.perimetre, C.perimetre, E.perimetre, TR.perimetre, TI.perimetre, Ro.perimetre, Pe.perimetre, He.perimetre, Oc.perimetre) AS perimetre,      COALESCE(Q.color, R.color, C.color, E.color, TR.color, TI.color, Ro.color, Pe.color, He.color, Oc.color) AS color FROM Poligons P LEFT JOIN Quadrats Q ON P.id_Poligon = Q.id_Poligon LEFT JOIN Rectangles R ON P.id_Poligon = R.id_Poligon LEFT JOIN Cercles C ON P.id_Poligon = C.id_Poligon LEFT JOIN Elipses E ON P.id_Poligon = E.id_Poligon LEFT JOIN Triangles_Rectangles TR ON P.id_Poligon = TR.id_Poligon LEFT JOIN Triangles_Isosceles TI ON P.id_Poligon = TI.id_Poligon LEFT JOIN Rombes Ro ON P.id_Poligon = Ro.id_Poligon LEFT JOIN Pentagons Pe ON P.id_Poligon = Pe.id_Poligon LEFT JOIN Hexagons He ON P.id_Poligon = He.id_Poligon LEFT JOIN Octagons Oc ON P.id_Poligon = Oc.id_Poligon;\r\n";
                     }
                     else
                     {
@@ -84,7 +86,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                 private void omplirLlistes()
                 {
-                    int id;
+                    int id, id_Figura;
                     ClPoligons p = null;
 
                     iniLlistes();
@@ -92,6 +94,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                     {
 
                         id = (int)fila.Cells["id_Poligon"].Value;
+                        id_Figura = (int)fila.Cells["idFigura"].Value;
                         switch (fila.Cells["tipus"].Value.ToString())
                         {
                             case "Quadrat":
@@ -144,7 +147,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                             p.area = (double)fila.Cells["area"].Value;
                             p.perimetre = (double)fila.Cells["perimetre"].Value;
                             p.color = (int)fila.Cells["color"].Value;
-                            p.getPoligons(bd, id);
+                            p.getPoligons(bd, id_Figura);
                             llPoligons.Add(p);
                         }
 
@@ -216,6 +219,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                 private void FrmMain_Paint(object sender, PaintEventArgs e)
                 {
+                    int cont = 0;
                     foreach (DataGridViewRow fila in dgPoligons.Rows)
                     {
                         int xCentro = tbInfo.Left + tbInfo.Width / 2;
@@ -228,13 +232,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                         {
                             case "Quadrat":
                                 info = tbInfo.Text;
-                                partes = info.Split(':');
-                                string ladoStrig = "";
-                                ladoStrig = partes[5].Replace("\r\nArea", "");
+                                string ladoStrig = llPoligons[cont];
                                 lado = int.Parse(ladoStrig.Trim());
 
-                                string colorStrig = "";
-                                colorStrig = partes[3].Replace("\r\nNom", "");
+                                string colorStrig = llPoligons[cont].color;
+
 
                                 // Crear los objetos de dibujo
                                 Pen p = new Pen(Color.Black);
@@ -254,19 +256,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 break;
 
                             case "Rectangle":
-                                info = tbInfo.Text;
-                                partes = info.Split(':');
                                 string anchoString = "";
                                 string altoString = "";
 
-                                // Extraer valores de ancho y alto
-                                anchoString = partes[5].Replace("\r\nAltura", "").Trim();
-                                altoString = partes[7].Replace("\r\nArea", "").Trim();
-
-                                int ancho = int.Parse(anchoString);
-                                int alto = int.Parse(altoString);
-
-                                colorStrig = partes[3].Replace("\r\nNom", "").Trim();
+ç                                
 
                                 Pen penR = new Pen(Color.Black);
                                 Rectangle rect = new Rectangle(xCentro - (ancho / 2), yCentro - (alto / 2), ancho, alto);
@@ -485,6 +478,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 }
                                 break;
                         }
+                    cont++;
                     }
                 }
 

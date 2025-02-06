@@ -55,7 +55,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             String xsql = "";
             DataSet xdset = new DataSet();
 
-            xsql = $"DELETE FROM Octagons WHERE id_Poligon='{id}";
+            xsql = $"DELETE FROM Octagons WHERE id_Octagon='{id}";
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
             {
                 xb = true;
@@ -70,7 +70,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             String xsql = "";
             DataSet xdset = new DataSet();
 
-            xsql = $"SELECT * FROM Octagons WHERE id_Poligon='{id}'";
+            xsql = $"SELECT * FROM Octagons WHERE id_Octagon='{id}'";
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
             {
                 nom = (string)xdset.Tables[0].Rows[0].ItemArray[2];

@@ -23,8 +23,8 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
                 getPoligons(xbd, xid);
             }
 
-            public ClCercles(ClBd xbd, string xnom, double xradio, double xarea, double xperimetre, int xcolor)
-                : base(xbd, xnom, xradio, xarea, xperimetre, xcolor)
+            public ClCercles(ClBd xbd, double xradio, string xnom,  double xarea, double xperimetre, int xcolor)
+                : base(xbd, xradio, xnom, xarea, xperimetre, xcolor)
             {
                 string xsql = $"INSERT INTO Cercles (id_Poligon, nom, radio, area, perimetre, color) " +
                               $"VALUES({id_Poligon}, '{xnom}', {xradio}, {xarea}, {xperimetre}, {xcolor})";
@@ -49,7 +49,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
             public override bool eliminarPoligon(ClBd bd, int id)
             {
-                string xsql = $"DELETE FROM Cercles WHERE id_Poligon={id}";
+                string xsql = $"DELETE FROM Cercles WHERE id_Cercle={id}";
                 return bd.executarOrdre(xsql);
             }
 
@@ -57,7 +57,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             {
                 bool xb = false;
                 DataSet xdset = new DataSet();
-                string xsql = $"SELECT * FROM Cercles WHERE id_Poligon={id}";
+                string xsql = $"SELECT * FROM Cercles WHERE id_Cercle={id}";
 
                 if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
                 {

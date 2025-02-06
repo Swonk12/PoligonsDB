@@ -22,8 +22,8 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             getPoligons(xbd, xid);
         }
 
-        public ClTriangles_Isosceles(ClBd xbd, string xnom, double xbase, double xaltura, double xarea, double xperimetre, int xcolor)
-            : base(xbd, xnom, xbase, xaltura, xarea, xperimetre, xcolor)
+        public ClTriangles_Isosceles(ClBd xbd, string xnom, double xbase, double xaltura, double xarea, int xcolor, double xperimetre)
+            : base(xbd, xnom, xbase, xaltura, xarea, xcolor, xperimetre)
         {
             string xsql = $"INSERT INTO Triangles_Isosceles (id_Poligon, nom, base, altura, area, perimetre, color) " +
                           $"VALUES({id_Poligon}, '{xnom}', {xbase}, {xaltura}, {xarea}, {xperimetre}, {xcolor})";
@@ -49,7 +49,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public override bool eliminarPoligon(ClBd bd, int id)
         {
-            string xsql = $"DELETE FROM Triangles_Isosceles WHERE id_Poligon={id}";
+            string xsql = $"DELETE FROM Triangles_Isosceles WHERE id_TriangleIso={id}";
             return bd.executarOrdre(xsql);
         }
 
@@ -57,7 +57,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         {
             bool xb = false;
             DataSet xdset = new DataSet();
-            string xsql = $"SELECT * FROM Triangles_Isosceles WHERE id_Poligon={id}";
+            string xsql = $"SELECT * FROM Triangles_Isosceles WHERE id_TriangleIso={id}";
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
             {

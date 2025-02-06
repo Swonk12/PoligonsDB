@@ -49,7 +49,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public override bool eliminarPoligon(ClBd bd, int id)
         {
-            string xsql = $"DELETE FROM Rombes WHERE id_Poligon={id}";
+            string xsql = $"DELETE FROM Rombes WHERE id_Rombe={id}";
             return bd.executarOrdre(xsql);
         }
 
@@ -57,7 +57,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         {
             bool xb = false;
             DataSet xdset = new DataSet();
-            string xsql = $"SELECT * FROM Rombes WHERE id_Poligon={id}";
+            string xsql = $"SELECT * FROM Rombes WHERE id_Rombe={id}";
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
             {

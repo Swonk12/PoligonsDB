@@ -27,8 +27,8 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
                 getPoligons(xbd, xid);
             }
 
-            public ClElipses(ClBd xbd, string xnom, double xradioMayor, double xradioMenor, double xarea, double xperimetre, int xcolor)
-                : base(xbd, xnom, xradioMayor, xradioMenor, xarea, xperimetre, xcolor)
+            public ClElipses(ClBd xbd, int xcolor, string xnom, double xradioMayor, double xradioMenor, double xarea, double xperimetre)
+                : base(xbd, xcolor, xnom, xradioMayor, xradioMenor, xarea, xperimetre)
             {
                 string xsql = $"INSERT INTO Elipses (id_Poligon, nom, radio_mayor, radio_menor, area, perimetre, color) " +
                               $"VALUES({id_Poligon}, '{xnom}', {xradioMayor}, {xradioMenor}, {xarea}, {xperimetre}, {xcolor})";
@@ -54,7 +54,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
             public override bool eliminarPoligon(ClBd bd, int id)
             {
-                string xsql = $"DELETE FROM Elipses WHERE id_Poligon={id}";
+                string xsql = $"DELETE FROM Elipses WHERE id_Elipse={id}";
                 return bd.executarOrdre(xsql);
             }
 
@@ -62,7 +62,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             {
                 bool xb = false;
                 DataSet xdset = new DataSet();
-                string xsql = $"SELECT * FROM Elipses WHERE id_Poligon={id}";
+                string xsql = $"SELECT * FROM Elipses WHERE id_Elipse={id}";
 
                 if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
                 {
