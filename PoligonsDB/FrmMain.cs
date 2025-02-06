@@ -232,8 +232,20 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                         {
                             case "Quadrat":
                                 info = tbInfo.Text;
-                                double ladoC = llPoligons[cont].lado;
-                                int ladoInt = (int)Math.Round(ladoC);
+                                string todo = llPoligons[cont].dadesPoligon();
+
+                                int indexLado = todo.IndexOf("Lado :") + "Lado :".Length;
+
+                                // Extrae el número después de "Lado :"
+                                int indexEnd = todo.IndexOf("\r\n", indexLado); // Encuentra el salto de línea que marca el fin del número
+                                string ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
+
+                                // Convierte el string a double
+                                double ladoDouble = double.Parse(ladoString);
+
+                                // Redondea el valor a entero
+                                int ladoInt = (int)Math.Round(ladoDouble);
+
                                 int colorStrig = llPoligons[cont].color;
                                 // Crear los objetos de dibujo
                                 Pen p = new Pen(Color.Black);
@@ -407,72 +419,72 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 break;
 
                             case "Pentagon":
-                                info = tbInfo.Text.Trim();
-                                Match match = Regex.Match(info, @"Lado\s:\s(\d+)");
-                                lado = int.Parse(match.Groups[1].Value);
-                                partes = info.Split(':');
-                                //colorStrig = "";
-                                info2Color = partes[3].Replace("\r\nNom", "").Trim();
+                                //info = tbInfo.Text.Trim();
+                                //Match match = Regex.Match(info, @"Lado\s:\s(\d+)");
+                                //lado = int.Parse(match.Groups[1].Value);
+                                //partes = info.Split(':');
+                                ////colorStrig = "";
+                                //info2Color = partes[3].Replace("\r\nNom", "").Trim();
 
-                                // Calcular los puntos del pentágono
-                                Point[] vPuntsPentagon = CalcularPuntosPentagono(xCentro, yCentro, lado);
-                                if (info2Color.Trim() == "TRUE")
-                                {
-                                    Brush brush = new SolidBrush(Color.Blue);
-                                    g.FillPolygon(brush, vPuntsPentagon);
-                                    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsPentagon);
-                                }
-                                else
-                                {
-                                    Pen pen = new Pen(Color.Black, 2);
-                                    g.DrawPolygon(pen, vPuntsPentagon);
-                                }
+                                //// Calcular los puntos del pentágono
+                                //Point[] vPuntsPentagon = CalcularPuntosPentagono(xCentro, yCentro, lado);
+                                //if (info2Color.Trim() == "TRUE")
+                                //{
+                                //    Brush brush = new SolidBrush(Color.Blue);
+                                //    g.FillPolygon(brush, vPuntsPentagon);
+                                //    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsPentagon);
+                                //}
+                                //else
+                                //{
+                                //    Pen pen = new Pen(Color.Black, 2);
+                                //    g.DrawPolygon(pen, vPuntsPentagon);
+                                //}
 
-                                g.DrawPolygon(new Pen(Color.Black, 2), vPuntsPentagon);
+                                //g.DrawPolygon(new Pen(Color.Black, 2), vPuntsPentagon);
                                 break;
 
                             case "Hexagon":
-                                info = tbInfo.Text;
-                                partes = info.Split(':');
-                                info2 = partes[5].Replace("\r\nApotema", "");
-                                lado = int.Parse(info2.Trim());
+                                //info = tbInfo.Text;
+                                //partes = info.Split(':');
+                                //info2 = partes[5].Replace("\r\nApotema", "");
+                                //lado = int.Parse(info2.Trim());
 
-                                info2Color = partes[3].Replace("\r\nNom", "");
-                                Point[] vPuntsHexagono = CalcularPuntosHexagono(xCentro, yCentro, lado);
+                                //info2Color = partes[3].Replace("\r\nNom", "");
+                                //Point[] vPuntsHexagono = CalcularPuntosHexagono(xCentro, yCentro, lado);
                                 
-                                if (info2Color.Trim() == "TRUE")
-                                {
-                                    Brush brush = new SolidBrush(Color.Blue);
-                                    g.FillPolygon(brush, vPuntsHexagono);
-                                    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsHexagono);
-                                }
-                                else 
-                                { 
-                                    Pen pen = new Pen(Color.Black, 2);
-                                    g.DrawPolygon(pen, vPuntsHexagono);
-                                }
+                                //if (info2Color.Trim() == "TRUE")
+                                //{
+                                //    Brush brush = new SolidBrush(Color.Blue);
+                                //    g.FillPolygon(brush, vPuntsHexagono);
+                                //    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsHexagono);
+                                //}
+                                //else 
+                                //{ 
+                                //    Pen pen = new Pen(Color.Black, 2);
+                                //    g.DrawPolygon(pen, vPuntsHexagono);
+                                //}
                                 break;
 
                             case "Octagon":
-                                info = tbInfo.Text;
-                                partes = info.Split(':');
-                                info2 = partes[5].Replace("\r\nApotema", "");
-                                lado = int.Parse(info2.Trim());
+                                //info = tbInfo.Text;
+                                //partes = info.Split(':');
+                                //info2 = partes[5].Replace("\r\nApotema", "");
+                                //lado = int.Parse(info2.Trim());
 
-                                info2Color = partes[3].Replace("\r\nNom", "");
-                                Point[] vPuntsOctagono = CalcularPuntosOctagono(xCentro, yCentro, lado);
+                                //info2Color = partes[3].Replace("\r\nNom", "");
+                                //Point[] vPuntsOctagono = CalcularPuntosOctagono(xCentro, yCentro, lado);
                                 
-                                if (info2Color.Trim() == "TRUE")
-                                {
-                                    Brush brush = new SolidBrush(Color.Blue);
-                                    g.FillPolygon(brush, vPuntsOctagono);
-                                    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsOctagono);
-                                }
-                                else 
-                                { 
-                                    Pen pen = new Pen(Color.Black, 2);
-                                    g.DrawPolygon(pen, vPuntsOctagono);
-                                }
+                                //if (info2Color.Trim() == "TRUE")
+                                //{
+                                //    Brush brush = new SolidBrush(Color.Blue);
+                                //    g.FillPolygon(brush, vPuntsOctagono);
+                                //    g.DrawPolygon(new Pen(Color.Black, 2), vPuntsOctagono);
+                                //}
+                                //else 
+                                //{ 
+                                //    Pen pen = new Pen(Color.Black, 2);
+                                //    g.DrawPolygon(pen, vPuntsOctagono);
+                                //}
                                 break;
                         }
                     cont++;
