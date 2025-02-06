@@ -136,6 +136,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 break;
 
                         }
+
                         if (fila.Cells["tipus"].Value.ToString() == "Quadrat" || fila.Cells["tipus"].Value.ToString() == "Pentagon" || fila.Cells["tipus"].Value.ToString() == "Hexagon" || fila.Cells["tipus"].Value.ToString() == "Octagon")
                         {
                             p.id_Poligon = id;
@@ -184,7 +185,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                     llRectangles.Clear();
                     llCercles.Clear();
                     llElipses.Clear();
-                    //llTriangles_Rectangles.Clear();
+                    llTriangles_Rectangles.Clear();
                     llTriangles_Isosceles.Clear();
                     llRombes.Clear();
                     llPentagons.Clear();
@@ -283,7 +284,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 }
                                 break;
 
-                            case "Cercles":
+                            case "Cercle":
                                 info = tbInfo.Text;
                                 partes = info.Split(':');
                                 string radioString = "";
@@ -341,11 +342,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 }
                                 break;
 
-                            case "Triangles_Rectangles":
+                            case "Triangle_Rectangle":
                                 //p = new ClTriangleRectangle(bd, id);
                                 //llTriangles_Rectangles.Add((ClTriangleRectangle)p);
                                 break;
-                            case "Triangles_Isosceles":
+                            case "Triangle_Isosceles":
                                 info = tbInfo.Text;
                                 partes = info.Split(':');
 
@@ -378,7 +379,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 }
                                 break;
 
-                            case "Rombes":
+                            case "Rombe":
                                 info = tbInfo.Text;
                                 partes = info.Split(':');
 
@@ -440,7 +441,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 g.DrawPolygon(new Pen(Color.Black, 2), vPuntsPentagon);
                                 break;
 
-                            case "Hexagons":
+                            case "Hexagon":
                                 info = tbInfo.Text;
                                 partes = info.Split(':');
                                 info2 = partes[5].Replace("\r\nApotema", "");
@@ -462,7 +463,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 }
                                 break;
 
-                            case "Octagons":
+                            case "Octagon":
                                 info = tbInfo.Text;
                                 partes = info.Split(':');
                                 info2 = partes[5].Replace("\r\nApotema", "");
