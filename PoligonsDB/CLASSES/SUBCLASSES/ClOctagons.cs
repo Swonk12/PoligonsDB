@@ -23,9 +23,9 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             getPoligons(xbd, xid);
         }
 
-        public ClOctagons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xnom, xlado, xapotema, xarea, xperimetre, xcolor)
+        public ClOctagons(ClBd xbd, string xtipo ,int xnum, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo , xnum ,xnom, xlado, xapotema, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Octagons (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
+            String xsql = $"INSERT INTO {xtipo} (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({xnum}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
             if (xbd.executarOrdre(xsql))
             {
                 MessageBox.Show($"Octagon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);

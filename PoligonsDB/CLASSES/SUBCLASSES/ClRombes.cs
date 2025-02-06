@@ -22,21 +22,21 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             getPoligons(xbd, xid);
         }
 
-        public ClRombes(ClBd xbd, string xnom, double xdiagonalMayor, double xdiagonalMenor, double xarea, double xperimetre, int xcolor)
-            : base(xbd, xnom, xdiagonalMayor, xdiagonalMenor, xarea, xperimetre, xcolor)
-        {
-            string xsql = $"INSERT INTO Rombes (id_Poligon, nom, diagonal_mayor, diagonal_menor, area, perimetre, color) " +
-                          $"VALUES({id_Poligon}, '{xnom}', {xdiagonalMayor}, {xdiagonalMenor}, {xarea}, {xperimetre}, {xcolor})";
+        //public ClRombes(ClBd xbd, string xnom, double xdiagonalMayor, double xdiagonalMenor, double xarea, double xperimetre, int xcolor)
+        //    : base(xbd, xnom, xdiagonalMayor, xdiagonalMenor, xarea, xperimetre, xcolor)
+        //{
+        //    string xsql = $"INSERT INTO Rombes (id_Poligon, nom, diagonal_mayor, diagonal_menor, area, perimetre, color) " +
+        //                  $"VALUES({id_Poligon}, '{xnom}', {xdiagonalMayor}, {xdiagonalMenor}, {xarea}, {xperimetre}, {xcolor})";
 
-            if (xbd.executarOrdre(xsql))
-            {
-                MessageBox.Show($"Rombe inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show($"No s'ha pogut inserir el rombe a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //    if (xbd.executarOrdre(xsql))
+        //    {
+        //        MessageBox.Show($"Rombe inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show($"No s'ha pogut inserir el rombe a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         public override string dadesPoligon()
         {

@@ -42,23 +42,25 @@ namespace PoligonsDB.CLASSES
                 else
                 {
                     id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                    tipus = "";
                 }
             }
 
         }
 
         // Pentagon
-        public ClPoligons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor)
+        public ClPoligons(ClBd xbd, string tipo , int num , string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor)
         {
 
             DataSet xdset = new DataSet();
-            String xsql = $"INSERT INTO Pentagons (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
+            String xsql = $"INSERT INTO {tipo} (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({num}, '{xnom}', {xlado.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xapotema.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xarea.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xperimetre.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xcolor})";
+
 
             if (xbd.executarOrdre(xsql))
             {
                 // Si la inserció ha anat bé recuperem l'Id generat perquè el necessitem per a fer la inserció en la taula de la subclasse
                 // ALERTA!!!! En un entorn multiusuari, aquesta operació s'hauria de fer amb una TRANSACTION per a garantir que el resultat és correcte
-                xsql = "SELECT TOP 1 Id FROM Poligon ORDER BY Id DESC";
+                xsql = "SELECT TOP 1 id_Poligon FROM Poligons ORDER BY id_Poligon DESC";
                 xbd.getDades(xsql, xdset);
                 if (xdset.Tables[0].Rows.Count == 0)
                 {

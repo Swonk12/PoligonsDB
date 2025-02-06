@@ -33,3 +33,4 @@ C:\Users\Pol\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.csproj.
 C:\Users\Pol\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.csproj.Up2Date
 C:\Users\Pol\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.exe
 C:\Users\Pol\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.pdb
+C:\Users\Marc\Documents\GitHub\PoligonsDB\PoligonsDB\obj\Debug\PoligonsDB.FORMULARIS.FrmAdd.resources

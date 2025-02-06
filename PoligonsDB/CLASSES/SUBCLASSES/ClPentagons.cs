@@ -23,16 +23,16 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             getPoligons(xbd, xid);
         }
 
-        public ClPentagons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xnom, xlado, xapotema, xarea, xperimetre, xcolor)
+        public ClPentagons(ClBd xbd,string xtipo , int xnum, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo , xnum ,xnom, xlado, xapotema, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Pentagons (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema}, {xarea}, {xperimetre}, {xcolor})";
+            String xsql = $"INSERT INTO {xtipo} (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({xnum}, '{xnom}', {xlado.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xapotema.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xarea.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xperimetre.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xcolor})";
             if (xbd.executarOrdre(xsql))
             {
-                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{xtipo} inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"No s'ha pogut inserir el {tipus} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No s'ha pogut inserir el {xtipo} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

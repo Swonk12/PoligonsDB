@@ -44,9 +44,6 @@
             this.rdCercle = new System.Windows.Forms.RadioButton();
             this.rdRectangle = new System.Windows.Forms.RadioButton();
             this.rdQuadrat = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkSi = new System.Windows.Forms.CheckBox();
-            this.chkNo = new System.Windows.Forms.CheckBox();
             this.gbGrup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +52,7 @@
             this.btClose.BackColor = System.Drawing.Color.DarkRed;
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btClose.ForeColor = System.Drawing.Color.White;
-            this.btClose.Location = new System.Drawing.Point(274, 428);
+            this.btClose.Location = new System.Drawing.Point(274, 376);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(113, 32);
             this.btClose.TabIndex = 14;
@@ -68,7 +65,7 @@
             this.btOk.BackColor = System.Drawing.Color.OliveDrab;
             this.btOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btOk.ForeColor = System.Drawing.Color.White;
-            this.btOk.Location = new System.Drawing.Point(140, 428);
+            this.btOk.Location = new System.Drawing.Point(140, 376);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(113, 32);
             this.btOk.TabIndex = 13;
@@ -80,7 +77,7 @@
             // 
             this.lbComentari.BackColor = System.Drawing.Color.LightGray;
             this.lbComentari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbComentari.Location = new System.Drawing.Point(12, 360);
+            this.lbComentari.Location = new System.Drawing.Point(12, 308);
             this.lbComentari.Name = "lbComentari";
             this.lbComentari.Padding = new System.Windows.Forms.Padding(2);
             this.lbComentari.Size = new System.Drawing.Size(488, 53);
@@ -119,7 +116,7 @@
             this.gbGrup.Controls.Add(this.rdCercle);
             this.gbGrup.Controls.Add(this.rdRectangle);
             this.gbGrup.Controls.Add(this.rdQuadrat);
-            this.gbGrup.Location = new System.Drawing.Point(12, 109);
+            this.gbGrup.Location = new System.Drawing.Point(12, 57);
             this.gbGrup.Margin = new System.Windows.Forms.Padding(4);
             this.gbGrup.Name = "gbGrup";
             this.gbGrup.Padding = new System.Windows.Forms.Padding(4);
@@ -139,6 +136,7 @@
             this.rdOctogons.TabIndex = 9;
             this.rdOctogons.Text = "Octògons";
             this.rdOctogons.UseVisualStyleBackColor = true;
+            this.rdOctogons.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdHexagons
             // 
@@ -150,6 +148,7 @@
             this.rdHexagons.TabIndex = 8;
             this.rdHexagons.Text = "Hexàgons";
             this.rdHexagons.UseVisualStyleBackColor = true;
+            this.rdHexagons.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdPentagons
             // 
@@ -161,6 +160,7 @@
             this.rdPentagons.TabIndex = 7;
             this.rdPentagons.Text = "Pentàgons";
             this.rdPentagons.UseVisualStyleBackColor = true;
+            this.rdPentagons.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdRombes
             // 
@@ -172,6 +172,7 @@
             this.rdRombes.TabIndex = 6;
             this.rdRombes.Text = "Rombes";
             this.rdRombes.UseVisualStyleBackColor = true;
+            this.rdRombes.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdTriangle_iso
             // 
@@ -183,6 +184,7 @@
             this.rdTriangle_iso.TabIndex = 5;
             this.rdTriangle_iso.Text = "Triangles isòsceles";
             this.rdTriangle_iso.UseVisualStyleBackColor = true;
+            this.rdTriangle_iso.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdTriangle_Rect
             // 
@@ -195,6 +197,7 @@
             this.rdTriangle_Rect.TabIndex = 4;
             this.rdTriangle_Rect.Text = "Triangles rectangles ";
             this.rdTriangle_Rect.UseVisualStyleBackColor = true;
+            this.rdTriangle_Rect.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdElipses
             // 
@@ -206,6 +209,7 @@
             this.rdElipses.TabIndex = 3;
             this.rdElipses.Text = "Elipses";
             this.rdElipses.UseVisualStyleBackColor = true;
+            this.rdElipses.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdCercle
             // 
@@ -218,6 +222,7 @@
             this.rdCercle.Tag = "";
             this.rdCercle.Text = "Cercles";
             this.rdCercle.UseVisualStyleBackColor = true;
+            this.rdCercle.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdRectangle
             // 
@@ -230,6 +235,7 @@
             this.rdRectangle.Tag = "";
             this.rdRectangle.Text = "Rectangles";
             this.rdRectangle.UseVisualStyleBackColor = true;
+            this.rdRectangle.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // rdQuadrat
             // 
@@ -244,47 +250,13 @@
             this.rdQuadrat.Tag = "";
             this.rdQuadrat.Text = "Quadrats";
             this.rdQuadrat.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.LightGray;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(12, 59);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(2);
-            this.label1.Size = new System.Drawing.Size(141, 25);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Vols color de fons";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chkSi
-            // 
-            this.chkSi.AutoSize = true;
-            this.chkSi.Location = new System.Drawing.Point(192, 61);
-            this.chkSi.Name = "chkSi";
-            this.chkSi.Size = new System.Drawing.Size(41, 20);
-            this.chkSi.TabIndex = 16;
-            this.chkSi.Text = "Si";
-            this.chkSi.UseVisualStyleBackColor = true;
-            // 
-            // chkNo
-            // 
-            this.chkNo.AutoSize = true;
-            this.chkNo.Location = new System.Drawing.Point(303, 62);
-            this.chkNo.Name = "chkNo";
-            this.chkNo.Size = new System.Drawing.Size(47, 20);
-            this.chkNo.TabIndex = 17;
-            this.chkNo.Text = "No";
-            this.chkNo.UseVisualStyleBackColor = true;
+            this.rdQuadrat.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
             // FrmAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 476);
-            this.Controls.Add(this.chkNo);
-            this.Controls.Add(this.chkSi);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(517, 430);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.btOk);
             this.Controls.Add(this.lbComentari);
@@ -318,8 +290,5 @@
         private System.Windows.Forms.RadioButton rdCercle;
         private System.Windows.Forms.RadioButton rdRectangle;
         private System.Windows.Forms.RadioButton rdQuadrat;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkSi;
-        private System.Windows.Forms.CheckBox chkNo;
     }
 }
