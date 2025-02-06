@@ -47,6 +47,7 @@ namespace PoligonsDB.CLASSES
 
         }
 
+        // Pentagon
         public ClPoligons(ClBd xbd, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor)
         {
 
@@ -70,6 +71,56 @@ namespace PoligonsDB.CLASSES
                 }
             }
         }
+
+        // Quadrat
+        public ClPoligons(ClBd xbd, string xnom, double xlado, double xarea, double xperimetre, int xcolor)
+        {
+
+            DataSet xdset = new DataSet();
+            String xsql = $"INSERT INTO Quadrats (id_Poligon, nom, lado, area, perimetre, color)  VALUES({id_Poligon}, {xnom}, {xlado}, {xarea}, {xperimetre}, {xcolor})";
+
+            if (xbd.executarOrdre(xsql))
+            {
+                // Si la inserció ha anat bé recuperem l'Id generat perquè el necessitem per a fer la inserció en la taula de la subclasse
+                // ALERTA!!!! En un entorn multiusuari, aquesta operació s'hauria de fer amb una TRANSACTION per a garantir que el resultat és correcte
+                xsql = "SELECT TOP 1 Id FROM Poligon ORDER BY Id DESC";
+                xbd.getDades(xsql, xdset);
+                if (xdset.Tables[0].Rows.Count == 0)
+                {
+                    id_Poligon = -1;
+                    MessageBox.Show("No s'ha pogut recuperar l'Id del nou poligons", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                }
+            }
+        }
+
+        // Rectangles
+        public ClPoligons(ClBd xbd, double xalto, string xnom, double xancho, double xarea, double xperimetre, int xcolor)
+        {
+            DataSet xdset = new DataSet();
+            String xsql = $"INSERT INTO Rectangles (id_Poligon, nom, ancho, alto, area, perimetre, color) " +
+                          $"VALUES({id_Poligon}, '{xnom}', {xancho}, {xalto}, {xarea}, {xperimetre}, {xcolor})";
+
+            if (xbd.executarOrdre(xsql))
+            {
+                xsql = "SELECT TOP 1 Id FROM Poligons ORDER BY Id DESC";
+                xbd.getDades(xsql, xdset);
+                if (xdset.Tables[0].Rows.Count == 0)
+                {
+                    id_Poligon = -1;
+                    MessageBox.Show("No s'ha pogut recuperar l'Id del nou poligon", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
+                }
+            }
+        }
+
+
 
 
         public String dadesComunes()

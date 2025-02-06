@@ -62,9 +62,16 @@
   <ItemGroup>
     <Compile Include="CLASSES\ClBd.cs" />
     <Compile Include="CLASSES\ClPoligons.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClCercles.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClElipses.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClHexagons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClOctagons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClPentagons.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClQuadrat.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClRectangles.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClRombes.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClTriangles_Isosceles.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClTriangles_Rectangles.cs" />
     <Compile Include="FORMULARIS\FrmAdd.cs">
       <SubType>Form</SubType>
     </Compile>

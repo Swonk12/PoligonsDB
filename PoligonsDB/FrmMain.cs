@@ -18,17 +18,17 @@
                 ClBd bd { get; set; }
                 DataSet dset { get; set; } = new DataSet();
                 //String cadenaConnexio = "Data Source=Vidallaptop;Initial Catalog=PoligonsBD;Integrated Security=True";
-                String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXVOCHU/ie0KxSzCJEKv98gQAAAACAAAAAAAQZgAAAAEAACAAAADpCJNnkl+FmczvjlLYXOviXot5VV9Ybw6wX3BgOwDIkwAAAAAOgAAAAAIAACAAAADTd4YMDdrbpTn+v2ZDXP+Hq08mUl8gvhcqKyrGUr+iklAAAAD6Wy1d9Y15hFDI9Bztl1VteFUpM4CPQVjoMXML3VWi5YsITj486ycxOHLLfImQU1NMuu3aPGeVcnOi1LmCDrL2TTjmKfDqYklZaCmgSPd0QEAAAABt5kuUZ2xLPCwceQj1Pce5oktjU0UCXs9uZsbfvPVYWOncW/JPAriNfGFzET/4EPXj8Ka1KnjprxZNSbY6tqOu";
+                String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZt0PpACLEye0nls4yvFgAQAAAACAAAAAAAQZgAAAAEAACAAAACfiYECuEAFyofHsBt4jPIkK+ghmMpQlVHxWuo9hgxnGwAAAAAOgAAAAAIAACAAAADFlKTjjyXotH2DaVOOQhuGiInjKxNk7znYQ1db7siYSVAAAABfOk0PUD2QTWtnsyKF2ju9IWDmOJZYufQtfZCisX1dfuyZTpYOPg2VJX2LYu4cs4kJD+EAhDRKPxYLT6nZsM2rSXAs0lGJo7ie3Q1IXia0aEAAAAAGiZGSqbHu+f1xTRzK6f/OikdZy/v2yR6zI8Cc3dBpFN8Dlun+VXfMGwzGKStQYaKLllbbU0QdFf5KVuEW7WKt";
 
                 // Listas
                 List<ClPoligons> llPoligons { get; set; } = new List<ClPoligons>();
-                //List<ClQuadrats> llQuadrats { get; set; } = new List<ClQuadrats>();
-                //List<ClRectangles> llRectangles { get; set; } = new List<ClRectangles>();
-                //List<ClCercles> llCercles { get; set; } = new List<ClCercles>();
-                //List<ClElipses> llElipses { get; set; } = new List<ClElipses>();
-                //List<ClTriangles_Rectangles> llTriangles_Rectangles { get; set; } = new List<ClTriangles_Rectangles>();
-                //List<ClTriangles_Isosceles> llTriangles_Isosceles { get; set; } = new List<ClTriangles_Isosceles>();
-                //List<ClRombes> llRombes { get; set; } = new List<ClRombes>();
+                List<ClQuadrat> llQuadrats { get; set; } = new List<ClQuadrat>();
+                List<ClRectangles> llRectangles { get; set; } = new List<ClRectangles>();
+                List<ClCercles> llCercles { get; set; } = new List<ClCercles>();
+                List<ClElipses> llElipses { get; set; } = new List<ClElipses>();
+                List<ClTriangles_Rectangles> llTriangles_Rectangles { get; set; } = new List<ClTriangles_Rectangles>();
+                List<ClTriangles_Isosceles> llTriangles_Isosceles { get; set; } = new List<ClTriangles_Isosceles>();
+                List<ClRombes> llRombes { get; set; } = new List<ClRombes>();
                 List<ClPentagons> llPentagons { get; set; } = new List<ClPentagons>();
                 List<ClHexagons> llHexagons { get; set; } = new List<ClHexagons>();
                 List<ClOctagons> llOctagons { get; set; } = new List<ClOctagons>();
@@ -91,33 +91,33 @@
                         id = (int)fila.Cells["id_Poligon"].Value;
                         switch (fila.Cells["tipus"].Value.ToString())
                         {
-                            case "Quadrats":
-                                //p = new ClQuadrat(bd, id);
-                                //llQuadrats.Add((ClQuadrat)p);
+                            case "Quadrat":
+                                p = new ClQuadrat(bd, id);
+                                llQuadrats.Add((ClQuadrat)p);
                                 break;
                             case "Rectangles":
-                                //p = new ClRectangle(bd, id);
-                                //llRectangles.Add((ClRectangle)p);
+                                p = new ClRectangles(bd, id);
+                                llRectangles.Add((ClRectangles)p);
                                 break;
                             case "Cercles":
-                                //p = new ClCercle(bd, id);
-                                //llCercles.Add((ClCercle)p);
+                                p = new ClCercles(bd, id);
+                                llCercles.Add((ClCercles)p);
                                 break;
                             case "Elipses":
-                                //p = new ClElipse(bd, id);
-                                //llElipses.Add((ClElipse)p);
+                                p = new ClElipses(bd, id);
+                                llElipses.Add((ClElipses)p);
                                 break;
                             case "Triangles_Rectangles":
-                                //p = new ClTriangleRectangle(bd, id);
-                                //llTriangles_Rectangles.Add((ClTriangleRectangle)p);
+                                p = new ClTriangles_Rectangles(bd, id);
+                                llTriangles_Rectangles.Add((ClTriangles_Rectangles)p);
                                 break;
                             case "Triangles_Isosceles":
-                                //p = new ClTriangleIso(bd, id);
-                                //llTriangles_Isosceles.Add((ClTriangleIso)p);
+                                p = new ClTriangles_Isosceles(bd, id);
+                                llTriangles_Isosceles.Add((ClTriangles_Isosceles)p);
                                 break;
                             case "Rombes":
-                                //p = new ClRombe(bd, id);
-                                //llRombes.Add((ClRombe)p);
+                                p = new ClRombes(bd, id);
+                                llRombes.Add((ClRombes)p);
                                 break;
                             case "Pentagon":
                                 p = new ClPentagons(bd, id);
@@ -133,7 +133,7 @@
                                 break;
 
                         }
-                        if (fila.Cells["tipus"].Value.ToString() == "Pentagon" || fila.Cells["tipus"].Value.ToString() == "Hexagon" || fila.Cells["tipus"].Value.ToString() == "Octagon")
+                        if (fila.Cells["tipus"].Value.ToString() == "Quadrat" || fila.Cells["tipus"].Value.ToString() == "Pentagon" || fila.Cells["tipus"].Value.ToString() == "Hexagon" || fila.Cells["tipus"].Value.ToString() == "Octagon")
                         {
                             p.id_Poligon = id;
                             p.tipus = fila.Cells["tipus"].Value.ToString();
@@ -177,7 +177,7 @@
                 private void iniLlistes()
                 {
                     llPoligons.Clear();
-                    //llQuadrats.Clear();
+                    llQuadrats.Clear();
                     //llRectangles.Clear();
                     //llCercles.Clear();
                     //llElipses.Clear();
@@ -220,13 +220,37 @@
                         string info, info2, info2Color;
                         string[] partes;
                         Graphics g = e.Graphics;
-                        switch (fila.Cells["tipus"].Value.ToString())
+                switch (fila.Cells["tipus"].Value.ToString())
                         {
-                            case "Quadrats":
-                                //p = new ClQuadrat(bd, id);
-                                //llQuadrats.Add((ClQuadrat)p);
-                                break;
-                            case "Rectangles":
+                            case "Quadrat":
+                            //Text = "Area: 25\r\nPerimetre: 20\r\nColor: FALSE\r\nNom : Quadrat1\r\nLado : 5\r\nArea : 25\r\nPerímetre : 2
+                                info = tbInfo.Text;
+                                partes = info.Split(':');
+                                string ladoStrig = "";
+                                ladoStrig = partes[5].Replace("\r\nArea", "");
+                                lado = int.Parse(ladoStrig.Trim());
+
+                                string colorStrig = "";
+                                colorStrig = partes[3].Replace("\r\nNom", "");
+
+                                // Crear los objetos de dibujo
+                                Pen p = new Pen(Color.Black);
+                                Rectangle r = new Rectangle(0, 0, lado, lado);
+
+                                if (colorStrig == "TRUE")
+                                {
+                                    // PINTAR CUADRADO RELLENO DE AZUL
+                                    Brush b = new SolidBrush(Color.Blue);
+                                    g.FillRectangle(b, r);
+                                }
+                                else
+                                {
+                                    // DIBUJAR SOLO EL CONTORNO
+                                    g.DrawRectangle(p, r);
+                                }
+
+                        break;
+                            case "Rectangle":
                                 //p = new ClRectangle(bd, id);
                                 //llRectangles.Add((ClRectangle)p);
                                 break;
