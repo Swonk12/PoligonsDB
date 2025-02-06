@@ -232,17 +232,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                         {
                             case "Quadrat":
                                 info = tbInfo.Text;
-                                string ladoStrig = llPoligons[cont];
-                                lado = int.Parse(ladoStrig.Trim());
-
-                                string colorStrig = llPoligons[cont].color;
-
-
+                                double ladoC = llPoligons[cont].lado;
+                                int ladoInt = (int)Math.Round(ladoC);
+                                int colorStrig = llPoligons[cont].color;
                                 // Crear los objetos de dibujo
                                 Pen p = new Pen(Color.Black);
-                                Rectangle r = new Rectangle(0, 0, lado, lado);
+                                Rectangle r = new Rectangle(0, 0, ladoInt, ladoInt);
 
-                                if (colorStrig == "TRUE")
+                                if (colorStrig == 1)
                                 {
                                     // PINTAR CUADRADO RELLENO DE AZUL
                                     Brush b = new SolidBrush(Color.Blue);
@@ -256,84 +253,84 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 break;
 
                             case "Rectangle":
-                                string anchoString = "";
-                                string altoString = "";
+//                                string anchoString = "";
+//                                string altoString = "";
 
-ç                                
+//ç                                
 
-                                Pen penR = new Pen(Color.Black);
-                                Rectangle rect = new Rectangle(xCentro - (ancho / 2), yCentro - (alto / 2), ancho, alto);
+//                                Pen penR = new Pen(Color.Black);
+//                                Rectangle rect = new Rectangle(xCentro - (ancho / 2), yCentro - (alto / 2), ancho, alto);
 
-                                if (colorStrig == "TRUE")
-                                {
-                                    // Pintar rectángulo relleno
-                                    Brush brush = new SolidBrush(Color.Blue);
-                                    g.FillRectangle(brush, rect);
-                                }
-                                else
-                                {
-                                    // Dibujar sin relleno
-                                    g.DrawRectangle(penR, rect);
-                                }
+//                                if (colorStrig == "TRUE")
+//                                {
+//                                    // Pintar rectángulo relleno
+//                                    Brush brush = new SolidBrush(Color.Blue);
+//                                    g.FillRectangle(brush, rect);
+//                                }
+//                                else
+//                                {
+//                                    // Dibujar sin relleno
+//                                    g.DrawRectangle(penR, rect);
+//                                }
                                 break;
 
                             case "Cercle":
-                                info = tbInfo.Text;
-                                partes = info.Split(':');
-                                string radioString = "";
+                                //info = tbInfo.Text;
+                                //partes = info.Split(':');
+                                //string radioString = "";
 
-                                // Extraer el valor del radio
-                                radioString = partes[5].Replace("\r\nArea", "").Trim();
-                                int radio = int.Parse(radioString);
+                                //// Extraer el valor del radio
+                                //radioString = partes[5].Replace("\r\nArea", "").Trim();
+                                //int radio = int.Parse(radioString);
 
-                                colorStrig = partes[3].Replace("\r\nNom", "").Trim();
+                                //colorStrig = partes[3].Replace("\r\nNom", "").Trim();
 
-                                Pen penC = new Pen(Color.Black);
-                                Rectangle circle = new Rectangle(xCentro - radio, yCentro - radio, radio * 2, radio * 2);
+                                //Pen penC = new Pen(Color.Black);
+                                //Rectangle circle = new Rectangle(xCentro - radio, yCentro - radio, radio * 2, radio * 2);
 
-                                if (colorStrig == "TRUE")
-                                {
-                                    // Pintar círculo relleno
-                                    Brush brushC = new SolidBrush(Color.Red);
-                                    g.FillEllipse(brushC, circle);
-                                }
-                                else
-                                {
-                                    // Dibujar sin relleno
-                                    g.DrawEllipse(penC, circle);
-                                }
+                                //if (colorStrig == "TRUE")
+                                //{
+                                //    // Pintar círculo relleno
+                                //    Brush brushC = new SolidBrush(Color.Red);
+                                //    g.FillEllipse(brushC, circle);
+                                //}
+                                //else
+                                //{
+                                //    // Dibujar sin relleno
+                                //    g.DrawEllipse(penC, circle);
+                                //}
                                 break;
 
                             case "Elipse":
-                                info = tbInfo.Text;
-                                partes = info.Split(':');
-                                string anchoStringE = "";
-                                string altoStringE = "";
+                                //info = tbInfo.Text;
+                                //partes = info.Split(':');
+                                //string anchoStringE = "";
+                                //string altoStringE = "";
 
-                                // Extraer valores de ancho y alto de la elipse
-                                anchoStringE = partes[5].Replace("\r\nAltura", "").Trim();
-                                altoStringE = partes[7].Replace("\r\nArea", "").Trim();
+                                //// Extraer valores de ancho y alto de la elipse
+                                //anchoStringE = partes[5].Replace("\r\nAltura", "").Trim();
+                                //altoStringE = partes[7].Replace("\r\nArea", "").Trim();
 
-                                int anchoE = int.Parse(anchoStringE);
-                                int altoE = int.Parse(altoStringE);
+                                //int anchoE = int.Parse(anchoStringE);
+                                //int altoE = int.Parse(altoStringE);
 
-                                colorStrig = partes[3].Replace("\r\nNom", "").Trim();
+                                //colorStrig = partes[3].Replace("\r\nNom", "").Trim();
 
-                                Pen penE = new Pen(Color.Black);
-                                Rectangle ellipseRect = new Rectangle(xCentro - (anchoE / 2), yCentro - (altoE / 2), anchoE, altoE);
+                                //Pen penE = new Pen(Color.Black);
+                                //Rectangle ellipseRect = new Rectangle(xCentro - (anchoE / 2), yCentro - (altoE / 2), anchoE, altoE);
 
-                                if (colorStrig == "TRUE")
-                                {
-                                    // Pintar elipse rellena
-                                    Brush brushE = new SolidBrush(Color.Green);
-                                    g.FillEllipse(brushE, ellipseRect);
-                                }
-                                else
-                                {
-                                    // Dibujar elipse sin relleno
-                                    g.DrawEllipse(penE, ellipseRect);
-                                }
-                                break;
+                                //if (colorStrig == "TRUE")
+                                //{
+                                //    // Pintar elipse rellena
+                                //    Brush brushE = new SolidBrush(Color.Green);
+                                //    g.FillEllipse(brushE, ellipseRect);
+                                //}
+                                //else
+                                //{
+                                //    // Dibujar elipse sin relleno
+                                //    g.DrawEllipse(penE, ellipseRect);
+                                //}
+                                //break;
 
                             case "Triangle_Rectangle":
                                 //p = new ClTriangleRectangle(bd, id);
@@ -414,7 +411,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                                 Match match = Regex.Match(info, @"Lado\s:\s(\d+)");
                                 lado = int.Parse(match.Groups[1].Value);
                                 partes = info.Split(':');
-                                colorStrig = "";
+                                //colorStrig = "";
                                 info2Color = partes[3].Replace("\r\nNom", "").Trim();
 
                                 // Calcular los puntos del pentágono

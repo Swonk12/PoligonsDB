@@ -171,7 +171,7 @@ namespace PoligonsDB.CLASSES
         // Triangle_Rectangle
 
         // Triangle_Isosceles
-        public ClPoligons(ClBd xbd, string xnom, double xbase, double xaltura, double xarea, ,int xcolor, double xperimetre)
+        public ClPoligons(ClBd xbd, string xnom, double xbase, double xaltura, double xarea ,int xcolor, double xperimetre)
         {
             // Crear un DataSet para manejar la consulta
             DataSet xdset = new DataSet();
