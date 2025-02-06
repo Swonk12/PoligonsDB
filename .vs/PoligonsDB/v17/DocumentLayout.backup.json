@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|c:\\users\\pol\\documents\\github\\poligonsdb\\poligonsdb\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\subclasses\\clcercles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,7 +27,7 @@
       "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\clrectangles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|c:\\users\\pol\\documents\\github\\poligonsdb\\poligonsdb\\classes\\clpoligons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\clpoligons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\clpoligons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,7 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ClElipses.cs",
               "DocumentMoniker": "C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\CLASSES\\SUBCLASSES\\ClElipses.cs",
               "RelativeDocumentMoniker": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClElipses.cs",
@@ -82,8 +82,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClElipses.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAowFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:09:53.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T18:09:53.81Z"
             },
             {
               "$type": "Document",
@@ -95,18 +94,17 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClRectangles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:09:13.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T18:09:13.655Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FrmMain.cs",
               "DocumentMoniker": "C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\FrmMain.cs",
               "RelativeDocumentMoniker": "PoligonsDB\\FrmMain.cs",
               "ToolTip": "C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\FrmMain.cs",
               "RelativeToolTip": "PoligonsDB\\FrmMain.cs",
-              "ViewState": "AgIAAAkBAAAAAAAAAAAswOIAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAWwM8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T16:04:44.47Z",
               "EditorCaption": ""
@@ -121,8 +119,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\ClPoligons.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAUwEsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T13:52:55.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T13:52:55.537Z"
             },
             {
               "$type": "Document",
@@ -134,8 +131,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClCercles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:09:38.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T18:09:38.774Z"
             },
             {
               "$type": "Document",
@@ -147,8 +143,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClQuadrat.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T16:13:48.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T16:13:48.15Z"
             },
             {
               "$type": "Document",
@@ -160,8 +155,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClPentagons.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T15:05:58.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T15:05:58.413Z"
             },
             {
               "$type": "Document",
@@ -173,8 +167,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\ClBd.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T14:05:07.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T14:05:07.663Z"
             },
             {
               "$type": "Document",
@@ -186,8 +179,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClTriangles_Isosceles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:11:19.809Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T18:11:19.809Z"
             },
             {
               "$type": "Document",
@@ -199,8 +191,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClRombes.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAA/wEsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:11:33.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T18:11:33.172Z"
             },
             {
               "$type": "Document",
@@ -212,8 +203,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClTriangles_Rectangles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T18:11:04.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T18:11:04.113Z"
             },
             {
               "$type": "Document",
@@ -225,8 +215,7 @@
               "RelativeToolTip": "PoligonsDB\\FORMULARIS\\FrmAdd.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAYwD4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T16:45:22.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T16:45:22.422Z"
             },
             {
               "$type": "Document",
@@ -237,8 +226,7 @@
               "ToolTip": "C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\FORMULARIS\\FrmAdd.cs [Dise\u00F1o]",
               "RelativeToolTip": "PoligonsDB\\FORMULARIS\\FrmAdd.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T16:40:02.342Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-02-03T16:40:02.342Z"
             },
             {
               "$type": "Document",
@@ -249,8 +237,7 @@
               "ToolTip": "C:\\Users\\Pol\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\FrmMain.cs [Dise\u00F1o]",
               "RelativeToolTip": "PoligonsDB\\FrmMain.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T16:04:56.082Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-01-27T16:04:56.082Z"
             }
           ]
         }
