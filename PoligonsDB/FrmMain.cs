@@ -1,7 +1,8 @@
 ﻿        using PoligonsDB.CLASSES;
         using PoligonsDB.CLASSES.SUBCLASSES;
-        using System;
-        using System.Collections.Generic;
+using PoligonsDB.CLASSES.SUBCLASSES.PoligonsDB.CLASSES.SUBCLASSES;
+using System;
+using System.Collections.Generic;
         using System.ComponentModel;
         using System.Data;
         using System.Drawing;
@@ -9,7 +10,8 @@
         using System.Text;
         using System.Threading.Tasks;
         using System.Windows.Forms;
-        using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+        using static PoligonsDB.CLASSES.SUBCLASSES.ClCercle;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
         namespace PoligonsDB
         {
@@ -23,7 +25,7 @@
                 // Listas
                 List<ClPoligons> llPoligons { get; set; } = new List<ClPoligons>();
                 List<ClQuadrat> llQuadrats { get; set; } = new List<ClQuadrat>();
-                List<ClRectangles> llRectangles { get; set; } = new List<ClRectangles>();
+                List<ClRectangle> llRectangles { get; set; } = new List<ClRectangle>();
                 List<ClCercles> llCercles { get; set; } = new List<ClCercles>();
                 List<ClElipses> llElipses { get; set; } = new List<ClElipses>();
                 List<ClTriangles_Rectangles> llTriangles_Rectangles { get; set; } = new List<ClTriangles_Rectangles>();
@@ -96,8 +98,8 @@
                                 llQuadrats.Add((ClQuadrat)p);
                                 break;
                             case "Rectangles":
-                                p = new ClRectangles(bd, id);
-                                llRectangles.Add((ClRectangles)p);
+                                p = new ClRectangle(bd, id);
+                                llRectangles.Add((ClRectangle)p);
                                 break;
                             case "Cercles":
                                 p = new ClCercles(bd, id);
@@ -108,8 +110,8 @@
                                 llElipses.Add((ClElipses)p);
                                 break;
                             case "Triangles_Rectangles":
-                                p = new ClTriangles_Rectangles(bd, id);
-                                llTriangles_Rectangles.Add((ClTriangles_Rectangles)p);
+                                //p = new ClTriangles_Rectangles(bd, id);
+                                //llTriangles_Rectangles.Add((ClTriangles_Rectangles)p);
                                 break;
                             case "Triangles_Isosceles":
                                 p = new ClTriangles_Isosceles(bd, id);
@@ -178,12 +180,12 @@
                 {
                     llPoligons.Clear();
                     llQuadrats.Clear();
-                    //llRectangles.Clear();
-                    //llCercles.Clear();
-                    //llElipses.Clear();
+                    llRectangles.Clear();
+                    llCercles.Clear();
+                    llElipses.Clear();
                     //llTriangles_Rectangles.Clear();
-                    //llTriangles_Isosceles.Clear();
-                    //llRombes.Clear();
+                    llTriangles_Isosceles.Clear();
+                    llRombes.Clear();
                     llPentagons.Clear();
                     llHexagons.Clear();
                     llOctagons.Clear();
@@ -223,7 +225,6 @@
                 switch (fila.Cells["tipus"].Value.ToString())
                         {
                             case "Quadrat":
-                            //Text = "Area: 25\r\nPerimetre: 20\r\nColor: FALSE\r\nNom : Quadrat1\r\nLado : 5\r\nArea : 25\r\nPerímetre : 2
                                 info = tbInfo.Text;
                                 partes = info.Split(':');
                                 string ladoStrig = "";

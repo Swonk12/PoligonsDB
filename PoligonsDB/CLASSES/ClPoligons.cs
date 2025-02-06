@@ -142,7 +142,7 @@ namespace PoligonsDB.CLASSES
                 "Color: " + xcolor + Environment.NewLine;
             return xs;
         }
-
+        
         // els mètodes abstract s'hauran de definir obligatòriament en cada una de les subclasses
         public abstract String dadesPoligon();
         public abstract Boolean eliminarPoligon(ClBd bd, int id);
