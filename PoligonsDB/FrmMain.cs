@@ -233,30 +233,23 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                             indexLado = todo.IndexOf("Lado :") + "Lado :".Length;
 
-                            // Extrae el número después de "Lado :"
-                            indexEnd = todo.IndexOf("\r\n", indexLado); // Encuentra el salto de línea que marca el fin del número
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
                             string ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            // Convierte el string a double
                             double ladoDouble = double.Parse(ladoString);
-
-                            // Redondea el valor a entero
                             int ladoInt = (int)Math.Round(ladoDouble);
-
                             int colorStrig = llPoligons[cont].color;
-                            // Crear los objetos de dibujo
+
                             Pen p = new Pen(Color.Black);
-                            Rectangle r = new Rectangle(0, 0, ladoInt, ladoInt);
+                            Rectangle r = new Rectangle(xCentro, yCentro, ladoInt, ladoInt);
 
                             if (colorStrig == 1)
                             {
-                                // PINTAR CUADRADO RELLENO DE AZUL
                                 Brush b = new SolidBrush(Color.Blue);
                                 g.FillRectangle(b, r);
                             }
                             else
                             {
-                                // DIBUJAR SOLO EL CONTORNO
                                 g.DrawRectangle(p, r);
                             }
                             break;
