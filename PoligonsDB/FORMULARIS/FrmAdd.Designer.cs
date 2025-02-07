@@ -180,9 +180,9 @@
             this.rdTriangle_iso.Location = new System.Drawing.Point(354, 42);
             this.rdTriangle_iso.Margin = new System.Windows.Forms.Padding(4);
             this.rdTriangle_iso.Name = "rdTriangle_iso";
-            this.rdTriangle_iso.Size = new System.Drawing.Size(146, 20);
+            this.rdTriangle_iso.Size = new System.Drawing.Size(150, 20);
             this.rdTriangle_iso.TabIndex = 5;
-            this.rdTriangle_iso.Text = "Triangles isòsceles";
+            this.rdTriangle_iso.Text = "Triangles_isòsceles";
             this.rdTriangle_iso.UseVisualStyleBackColor = true;
             this.rdTriangle_iso.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 
@@ -193,9 +193,9 @@
             this.rdTriangle_Rect.Location = new System.Drawing.Point(29, 196);
             this.rdTriangle_Rect.Margin = new System.Windows.Forms.Padding(4);
             this.rdTriangle_Rect.Name = "rdTriangle_Rect";
-            this.rdTriangle_Rect.Size = new System.Drawing.Size(154, 20);
+            this.rdTriangle_Rect.Size = new System.Drawing.Size(157, 20);
             this.rdTriangle_Rect.TabIndex = 4;
-            this.rdTriangle_Rect.Text = "Triangles rectangles ";
+            this.rdTriangle_Rect.Text = "TrianglesRectangles ";
             this.rdTriangle_Rect.UseVisualStyleBackColor = true;
             this.rdTriangle_Rect.CheckedChanged += new System.EventHandler(this.rdQuadrat_CheckedChanged);
             // 

@@ -12,18 +12,15 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
     {
         public string nom { get; set; }
         public double lado { get; set; }
-        public double area { get; set; }
-        public double perimetre { get; set; }
-        public int color { get; set; }
 
         public ClQuadrat(ClBd xbd, int xid) : base(xbd, xid)
         {
             getPoligons(xbd, xid);
         }
 
-        public ClQuadrat(ClBd xbd, string xnom, double xlado, double xarea, double xperimetre, int xcolor) : base(xbd, xnom, xlado, xarea, xperimetre, xcolor)
+        public ClQuadrat(ClBd xbd, string xtipo, string xnom, double xlado, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Quadrats (id_Poligon, nom, lado, area, perimetre, color) VALUES({id_Poligon}, '{xnom}', {xlado}, {xarea}, {xperimetre}, {xcolor})";
+            String xsql = $"INSERT INTO Quadrats (id_Poligon, nom, lado) VALUES({id_Poligon}, '{xnom}', {xlado})";
             if (xbd.executarOrdre(xsql))
             {
                 MessageBox.Show($"Polígon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -43,7 +40,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool eliminarPoligon(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"DELETE FROM Quadrats WHERE id_Quadrat='{id}'";
+            String xsql = $"DELETE FROM Quadrats WHERE id_Poligon='{id}'";
             DataSet xdset = new DataSet();
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)

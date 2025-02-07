@@ -1,5 +1,6 @@
 ﻿using PoligonsDB.CLASSES;
 using PoligonsDB.CLASSES.SUBCLASSES;
+using PoligonsDB.CLASSES.SUBCLASSES.PoligonsDB.CLASSES.SUBCLASSES;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,8 @@ namespace PoligonsDB.FORMULARIS
 
             // Campos a usar:
 
-            double xlado, xapotema, perimetro, area;
+            double xlado, xapotema, perimetro, area, xbase, xaltura;
+            double alto, ancho, xradio, xradioMayor, xradioMenor, xdiagonalMenor, xdiagonalMayor;
             int color;
 
             if (tbNom.Text.Trim().Length == 0)
@@ -40,27 +42,52 @@ namespace PoligonsDB.FORMULARIS
             }else{
                 switch (tipus)
                 {
-                    //    case "Quadrats":
-                    //        ClBalrog bal = new ClBalrog(bd, tbNom.Text, strength, intelligence, grup, R.Next(0, 101), 1, R.Next(0, 51), R.Next(0, 101));
-                    //        break;
-                    //    case "Elfs":
-                    //        ClElf elf = new ClElf(bd, tbNom.Text, strength, intelligence, grup, R.Next(1200, 10000), 1, R.Next(1000, 100000) / 100, llColorsCabell[R.Next(0, llColorsCabell.Count)], R.Next(0, 101));
-                    //        break;
-                    //    case "Hobbits":
-                    //        ClHobbit hob = new ClHobbit(bd, tbNom.Text, strength, intelligence, grup, R.Next(90, 121), R.Next(20, 101), 1, "La Comarca", R.Next(0, 101));
-                    //        break;
-                    //    case "Humans":
-                    //        ClHuma hum = new ClHuma(bd, tbNom.Text, strength, intelligence, grup, R.Next(90, 121), llCaracterístiques[R.Next(0, llCaracterístiques.Count)], 1, R.Next(0, 101), llTerresHumans[R.Next(0, llTerresHumans.Count)]);
-                    //        break;
-                    //    case "Mags":
-                    //        ClMag mag = new ClMag(bd, tbNom.Text, strength, intelligence, grup, R.Next(0, 101), R.Next(1500, 5001), 1, llColorsCapa[R.Next(0, llColorsCapa.Count)], R.Next(0, 101));
-                    //        break;
-                    //    case "Nans":
-                    //        ClNan nan = new ClNan(bd, tbNom.Text, strength, intelligence, grup, R.Next(100, 501), R.Next(0, 101), 1, llClansNans[R.Next(0, llClansNans.Count)]);
-                    //        break;
-                    //    case "Nazguls":
-                    //        ClNazgul naz = new ClNazgul(bd, tbNom.Text, strength, intelligence, grup, R.Next(0, 101), R.Next(0, 2), R.Next(0, 101), llMunturaNazguls[R.Next(0, llMunturaNazguls.Count)], R.Next(0, 101));
-                    //        break;
+                    case "Quadrats":
+                        xlado = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        area = xlado * xlado;
+                        perimetro = xlado * 4;
+                        ClQuadrat bal = new ClQuadrat(bd, "Quadrat", tbNom.Text, xlado, area, perimetro, r.Next(0, 2);                        break;
+                    case "Rectangles":
+                        alto = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        ancho = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        area = alto * alto;
+                        perimetro = 2 * (alto + ancho);
+                        ClRectangle elf = new ClRectangle(bd, "Rectangle", alto, tbNom.Text, ancho, area, perimetro, r.Next(0,2));
+                        break;
+                    case "Cercles":
+                        xradio = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        area = Math.Round((Math.PI*(xradio * xradio)),2);
+                        perimetro = Math.Round((2 * Math.PI*xradio),2);
+                        ClCercles hob = new ClCercles(bd, "Cercle", xradio,tbNom.Text, area, perimetro, r.Next(0,2));
+                        break;
+                    case "Elipses":
+                        xradioMayor = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        xradioMenor = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+
+                        area = Math.Round((Math.PI*xradioMayor*xradioMenor),2);
+                        perimetro = Math.Round((Math.PI * (3 * (xradioMayor + xradioMenor)) - (Math.Sqrt((3 * xradioMayor + xradioMenor) * (xradioMayor + 3 * xradioMenor)))),2);
+                        ClElipses hum = new ClElipses(bd, "Elipse", tbNom.Text, xradioMayor, xradioMenor, area, perimetro, r.Next(0,2));
+                        break;
+                    case "TrianglesRectangles":
+                        //ClTriangles_Rectangles mag = new ClTriangles_Rectangles(bd, tbNom.Text, strength, intelligence, grup, R.Next(0, 101), R.Next(1500, 5001), 1, llColorsCapa[R.Next(0, llColorsCapa.Count)], R.Next(0, 101));
+                        break;
+                    case "Triangles_isòsceles":
+                        xbase = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        xaltura = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        area = Math.Round((xbase * xaltura) / 2);
+                        perimetro = Math.Round(((xaltura * xaltura) + xbase),2);
+                        ClTriangles_Isosceles nan = new ClTriangles_Isosceles(bd, "Triangle Isosceles",tbNom.Text, xbase, xaltura,area, r.Next(0,2), perimetro);
+                        break;
+                    case "Rombes":
+                        xdiagonalMenor = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        xdiagonalMayor = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+
+                        area = Math.Round(((xdiagonalMayor * xdiagonalMayor) / 2),2);
+                        xlado = Math.Round(Math.Sqrt(Math.Pow(xdiagonalMayor / 2, 2) + Math.Pow(xdiagonalMenor / 2, 2)),2);
+
+                        perimetro = 4 * xlado;
+                        ClRombes naz = new ClRombes(bd, "Rombe", tbNom.Text, xdiagonalMayor, xdiagonalMenor, area, perimetro, r.Next(0,2));
+                        break;
                     case "Pentàgons":
                         xlado = Math.Round((r.NextDouble() + r.Next(20,50)), 2);
                         xapotema = Math.Round((r.NextDouble() + r.Next(10, 20)) ,2);

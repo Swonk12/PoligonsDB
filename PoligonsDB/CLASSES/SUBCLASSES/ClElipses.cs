@@ -18,20 +18,15 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             public string nom { get; set; }
             public double radio_mayor { get; set; }
             public double radio_menor { get; set; }
-            public double area { get; set; }
-            public double perimetre { get; set; }
-            public int color { get; set; }
 
             public ClElipses(ClBd xbd, int xid) : base(xbd, xid)
             {
                 getPoligons(xbd, xid);
             }
 
-            public ClElipses(ClBd xbd, int xcolor, string xnom, double xradioMayor, double xradioMenor, double xarea, double xperimetre)
-                : base(xbd, xcolor, xnom, xradioMayor, xradioMenor, xarea, xperimetre)
+            public ClElipses(ClBd xbd, string xtipo, string xnom, double xradioMayor, double xradioMenor, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo , xarea, xperimetre, xcolor)
             {
-                string xsql = $"INSERT INTO Elipses (id_Poligon, nom, radio_mayor, radio_menor, area, perimetre, color) " +
-                              $"VALUES({id_Poligon}, '{xnom}', {xradioMayor}, {xradioMenor}, {xarea}, {xperimetre}, {xcolor})";
+                string xsql = $"INSERT INTO Elipses (id_Poligon, nom, radio_mayor, radio_menor) VALUES({id_Poligon}, '{xnom}', {xradioMayor}, {xradioMenor})";
 
                 if (xbd.executarOrdre(xsql))
                 {
@@ -47,14 +42,12 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             {
                 return $"Nom: {nom}{Environment.NewLine}" +
                        $"Radi Major: {radio_mayor}{Environment.NewLine}" +
-                       $"Radi Menor: {radio_menor}{Environment.NewLine}" +
-                       $"Àrea: {area}{Environment.NewLine}" +
-                       $"Perímetre: {perimetre}{Environment.NewLine}";
+                       $"Radi Menor: {radio_menor}{Environment.NewLine}";
             }
 
             public override bool eliminarPoligon(ClBd bd, int id)
             {
-                string xsql = $"DELETE FROM Elipses WHERE id_Elipse={id}";
+                string xsql = $"DELETE FROM Elipses WHERE id_Poligon={id}";
                 return bd.executarOrdre(xsql);
             }
 
@@ -62,16 +55,13 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             {
                 bool xb = false;
                 DataSet xdset = new DataSet();
-                string xsql = $"SELECT * FROM Elipses WHERE id_Elipse={id}";
+                string xsql = $"SELECT * FROM Elipses WHERE id_Poligon={id}";
 
                 if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
                 {
                     nom = xdset.Tables[0].Rows[0]["nom"].ToString();
                     radio_mayor = Convert.ToDouble(xdset.Tables[0].Rows[0]["radio_mayor"]);
                     radio_menor = Convert.ToDouble(xdset.Tables[0].Rows[0]["radio_menor"]);
-                    area = Convert.ToDouble(xdset.Tables[0].Rows[0]["area"]);
-                    perimetre = Convert.ToDouble(xdset.Tables[0].Rows[0]["perimetre"]);
-                    color = Convert.ToInt32(xdset.Tables[0].Rows[0]["color"]);
                     xb = true;
                 }
                 return xb;
