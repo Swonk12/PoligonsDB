@@ -623,12 +623,22 @@ namespace PoligonsDB
 
         private void pbDel_Click(object sender, EventArgs e)
         {
-            //FrmAdd fAdd = new FrmAdd("B", bd);
-
-            //fAdd.ShowDialog();
-            //fAdd.Dispose();
-            //fAdd = null;
-            getPoligons(cbPoligon.SelectedIndex == 0);
+            ClPoligons p;
+            if (dgPoligons.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Cal seleccionar una fila", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (MessageBox.Show("Estàs segur que vols suprimir el Poligon seleccionat?", "ATENCIÓ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    DataGridViewRow fila = dgPoligons.SelectedRows[0];
+                    int cont = fila.Index;
+                    p = llPoligons[cont+1];
+                    p.eliminarPoligon(bd, cont);
+                }
+            }
+            getPoligons(true);
         }
     }
 }

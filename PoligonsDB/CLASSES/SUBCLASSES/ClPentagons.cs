@@ -49,12 +49,15 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             String xsql = "";
             DataSet xdset = new DataSet();
 
-            xsql = $"DELETE FROM Pentagons WHERE id_Poligon='{id}";
-            if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
+            xsql = $"DELETE FROM Pentagons WHERE id_Poligon={id}";
+            if (bd.executarOrdre(xsql))
             {
-                xb = true;
+                xsql = $"DELETE FROM Poligons WHERE id_Poligon={id}";
+                if (bd.executarOrdre(xsql))
+                {
+                    xb = true;
+                }
             }
-            // pendent de codificar
             return xb;
         }
 

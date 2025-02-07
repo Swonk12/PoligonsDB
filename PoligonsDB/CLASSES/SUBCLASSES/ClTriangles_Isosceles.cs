@@ -42,8 +42,20 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public override bool eliminarPoligon(ClBd bd, int id)
         {
-            string xsql = $"DELETE FROM Triangles_Isosceles WHERE id_Poligon={id}";
-            return bd.executarOrdre(xsql);
+            Boolean xb = false;
+            String xsql = "";
+            DataSet xdset = new DataSet();
+
+            xsql = $"DELETE FROM Triangles_Isosceles WHERE id_Poligon={id}";
+            if (bd.executarOrdre(xsql))
+            {
+                xsql = $"DELETE FROM Poligons WHERE id_Poligon={id}";
+                if (bd.executarOrdre(xsql))
+                {
+                    xb = true;
+                }
+            }
+            return xb;
         }
 
         public override bool getPoligons(ClBd bd, int id)

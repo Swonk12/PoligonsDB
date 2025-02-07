@@ -43,12 +43,17 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool eliminarPoligon(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"DELETE FROM Rectangles WHERE id_Poligon='{id}'";
+            String xsql = "";
             DataSet xdset = new DataSet();
 
-            if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
+            xsql = $"DELETE FROM Rectangles WHERE id_Poligon={id}";
+            if (bd.executarOrdre(xsql))
             {
-                xb = true;
+                xsql = $"DELETE FROM Poligons WHERE id_Poligon={id}";
+                if (bd.executarOrdre(xsql))
+                {
+                    xb = true;
+                }
             }
             return xb;
         }
