@@ -34,7 +34,7 @@ namespace PoligonsDB.FORMULARIS
 
             double xlado, xapotema, perimetro, area, xbase, xaltura;
             double alto, ancho, xradio, xradioMayor, xradioMenor, xdiagonalMenor, xdiagonalMayor;
-            int color;
+            int color, xladoRect;
 
             if (tbNom.Text.Trim().Length == 0)
             {
@@ -70,7 +70,13 @@ namespace PoligonsDB.FORMULARIS
                         ClElipses hum = new ClElipses(bd, "Elipse", tbNom.Text, xradioMayor, xradioMenor, area, perimetro, r.Next(0,2));
                         break;
                     case "TrianglesRectangles":
-                        //ClTriangles_Rectangles mag = new ClTriangles_Rectangles(bd, tbNom.Text, strength, intelligence, grup, R.Next(0, 101), R.Next(1500, 5001), 1, llColorsCapa[R.Next(0, llColorsCapa.Count)], R.Next(0, 101));
+                        xbase = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        xaltura = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
+                        double hipotenusa = Math.Round(Math.Sqrt(Math.Pow(xbase, 2) + Math.Pow(xaltura, 2)), 2);
+
+                        area = Math.Round(((xbase * xaltura) / 2),2);
+                        perimetro = Math.Round((xbase + xaltura + hipotenusa), 2);
+                        ClTriangles_Rectangles mag = new ClTriangles_Rectangles(bd, "Triangle Rectangle", r.Next(0,2), tbNom.Text, xbase, xaltura, area, r.Next(0,2), perimetro);
                         break;
                     case "Triangles_isòsceles":
                         xbase = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);

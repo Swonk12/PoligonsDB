@@ -86,7 +86,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                 private void omplirLlistes()
                 {
-                    int id, id_Figura;
+                    int id;
                     ClPoligons p = null;
 
                     iniLlistes();
@@ -94,34 +94,33 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                     {
 
                         id = (int)fila.Cells["id_Poligon"].Value;
-                        //id_Figura = (int)fila.Cells[2].Value;
                         switch (fila.Cells["tipus"].Value.ToString())
                         {
                             case "Quadrat":
                                 p = new ClQuadrat(bd, id);
                                 llQuadrats.Add((ClQuadrat)p);
                                 break;
-                            case "Rectangles":
+                            case "Rectangle":
                                 p = new ClRectangle(bd, id);
                                 llRectangles.Add((ClRectangle)p);
                                 break;
-                            case "Cercles":
+                            case "Cercle":
                                 p = new ClCercles(bd, id);
                                 llCercles.Add((ClCercles)p);
                                 break;
-                            case "Elipses":
+                            case "Elipse":
                                 p = new ClElipses(bd, id);
                                 llElipses.Add((ClElipses)p);
                                 break;
-                            case "Triangles_Rectangles":
-                                //p = new ClTriangles_Rectangles(bd, id);
-                                //llTriangles_Rectangles.Add((ClTriangles_Rectangles)p);
+                            case "Triangle Rectangle":
+                                p = new ClTriangles_Rectangles(bd, id);
+                                llTriangles_Rectangles.Add((ClTriangles_Rectangles)p);
                                 break;
-                            case "Triangles_Isosceles":
+                            case "Triangle Isosceles":
                                 p = new ClTriangles_Isosceles(bd, id);
                                 llTriangles_Isosceles.Add((ClTriangles_Isosceles)p);
                                 break;
-                            case "Rombes":
+                            case "Rombe":
                                 p = new ClRombes(bd, id);
                                 llRombes.Add((ClRombes)p);
                                 break;
