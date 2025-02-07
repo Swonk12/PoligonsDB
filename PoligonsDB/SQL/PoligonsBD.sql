@@ -6,7 +6,10 @@ GO
 
 CREATE TABLE Poligons (
     id_Poligon INT IDENTITY(1,1) PRIMARY KEY,
-    tipus NVARCHAR(50) NOT NULL
+    tipus NVARCHAR(50) NOT NULL,
+    area FLOAT NOT NULL,
+    perimetre FLOAT NOT NULL,
+    color INT NOT NULL
 );
 
 CREATE TABLE Quadrats (
@@ -14,9 +17,6 @@ CREATE TABLE Quadrats (
     id_Poligon INT NOT NULL,
     nom NVARCHAR(50) NOT NULL,
     lado FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL, -- Cambiado BOOLEAN a INT
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -26,9 +26,6 @@ CREATE TABLE Rectangles (
     nom NVARCHAR(50) NOT NULL,
     ancho FLOAT NOT NULL,
     alto FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -37,9 +34,6 @@ CREATE TABLE Cercles (
     id_Poligon INT NOT NULL,
     nom NVARCHAR(50) NOT NULL,
     radio FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -49,21 +43,16 @@ CREATE TABLE Elipses (
     nom NVARCHAR(50) NOT NULL,
     radio_mayor FLOAT NOT NULL,
     radio_menor FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
 CREATE TABLE Triangles_Rectangles (
     id_TriangleRect INT IDENTITY(1,1) PRIMARY KEY,
     id_Poligon INT NOT NULL,
+    ladoRect INT NOT NULL,
     nom NVARCHAR(50) NOT NULL,
     base FLOAT NOT NULL,
     altura FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -73,9 +62,6 @@ CREATE TABLE Triangles_Isosceles (
     nom NVARCHAR(50) NOT NULL,
     base FLOAT NOT NULL,
     altura FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -85,9 +71,6 @@ CREATE TABLE Rombes (
     nom NVARCHAR(50) NOT NULL,
     diagonal_mayor FLOAT NOT NULL,
     diagonal_menor FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -97,9 +80,6 @@ CREATE TABLE Pentagons (
     nom NVARCHAR(50) NOT NULL,
     lado FLOAT NOT NULL,
     apotema FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -109,9 +89,6 @@ CREATE TABLE Hexagons (
     nom NVARCHAR(50) NOT NULL,
     lado FLOAT NOT NULL,
     apotema FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );
 
@@ -121,8 +98,5 @@ CREATE TABLE Octagons (
     nom NVARCHAR(50) NOT NULL,
     lado FLOAT NOT NULL,
     apotema FLOAT NOT NULL,
-    area FLOAT NOT NULL,
-    perimetre FLOAT NOT NULL,
-    color INT NULL,
     FOREIGN KEY (id_Poligon) REFERENCES Poligons(id_Poligon)
 );

@@ -49,11 +49,11 @@ namespace PoligonsDB.CLASSES
         }
 
         // Pentagon
-        public ClPoligons(ClBd xbd, string tipo , int num , string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor)
+        public ClPoligons(ClBd xbd, string tipo , double xarea, double xperimetre, int xcolor)
         {
 
             DataSet xdset = new DataSet();
-            String xsql = $"INSERT INTO {tipo} (id_Poligon, nom, lado, apotema, area, perimetre, color)  VALUES({num}, '{xnom}', {xlado.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xapotema.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xarea.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xperimetre.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xcolor})";
+            String xsql = $"INSERT INTO Poligons(tipus, area, perimetre, color)  VALUES('{tipo}', {xarea.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xperimetre.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(',', '.')}, {xcolor})";
 
 
             if (xbd.executarOrdre(xsql))

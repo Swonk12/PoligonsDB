@@ -69,7 +69,7 @@ namespace PoligonsDB.FORMULARIS
                         area = (perimetro * xapotema) / 2;
                         color = r.Next(0,2);
 
-                        ClPentagons penta = new ClPentagons(bd, "Pentagons", 8,tbNom.Text, xlado, xapotema, perimetro, area, color);
+                        ClPentagons penta = new ClPentagons(bd, "Pentagon",tbNom.Text, xlado, xapotema, perimetro, area, color);
                         break;
                     case "Hexàgons":
                         xlado = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
@@ -79,7 +79,7 @@ namespace PoligonsDB.FORMULARIS
                         area = (perimetro * xapotema) / 2;
                         color = r.Next(0, 2);
 
-                        ClHexagons hexa = new ClHexagons(bd, "Hexagons", 9, tbNom.Text, xlado, xapotema, perimetro, area, color);
+                        ClHexagons hexa = new ClHexagons(bd, "Hexagons", tbNom.Text, xlado, xapotema, perimetro, area, color);
                         break;
                     case "Octògons":
                         xlado = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
@@ -89,9 +89,10 @@ namespace PoligonsDB.FORMULARIS
                         area = (perimetro * xapotema) / 2;
                         color = r.Next(0, 2);
 
-                        ClOctagons oct = new ClOctagons(bd, "Octagons", 10, tbNom.Text, xlado, xapotema, perimetro, area, color);
+                        ClOctagons oct = new ClOctagons(bd, "Octagons", tbNom.Text, xlado, xapotema, perimetro, area, color);
                         break;
                 }
+                this.Close();
             }
 
         }

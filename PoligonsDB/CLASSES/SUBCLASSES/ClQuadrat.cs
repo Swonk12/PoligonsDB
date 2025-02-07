@@ -37,9 +37,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override string dadesPoligon()
         {
             return "Nom : " + nom + Environment.NewLine +
-                   "Lado : " + lado.ToString() + Environment.NewLine +
-                   "Area : " + area.ToString() + Environment.NewLine +
-                   "Perímetre : " + perimetre.ToString() + Environment.NewLine;
+                   "Lado : " + lado.ToString() + Environment.NewLine;
         }
 
         public override bool eliminarPoligon(ClBd bd, int id)
@@ -58,16 +56,13 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public override bool getPoligons(ClBd bd, int id)
         {
             Boolean xb = false;
-            String xsql = $"SELECT * FROM Quadrats WHERE id_Quadrat ='{id}'";
+            String xsql = $"SELECT * FROM Quadrats WHERE id_Poligon ='{id}'";
             DataSet xdset = new DataSet();
 
             if (bd.getDades(xsql, xdset) && xdset.Tables[0].Rows.Count > 0)
             {
                 nom = (string)xdset.Tables[0].Rows[0].ItemArray[2];
                 lado = (double)xdset.Tables[0].Rows[0].ItemArray[3];
-                area = (double)xdset.Tables[0].Rows[0].ItemArray[4];
-                perimetre = (double)xdset.Tables[0].Rows[0].ItemArray[5];
-                color = (int)xdset.Tables[0].Rows[0].ItemArray[6];
                 xb = true;
             }
             return xb;

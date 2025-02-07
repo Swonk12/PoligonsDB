@@ -68,7 +68,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                     if (xbTots)
                     {
-                        xsql = $"SELECT       P.id_Poligon,       P.tipus,   COALESCE(Q.id_Quadrat, R.id_Rectangle, C.id_Cercle, E.id_Elipse, TR.id_TriangleRect , TI.id_TriangleIso, Ro.id_Rombe , Pe.id_Pentagon, He.id_Hexagon , Oc.id_Octagon) AS idFigura , COALESCE(Q.nom, R.nom, C.nom, E.nom, TR.nom, TI.nom, Ro.nom, Pe.nom, He.nom, Oc.nom) AS Nombre , COALESCE(Q.area, R.area, C.area, E.area, TR.area, TI.area, Ro.area, Pe.area, He.area, Oc.area) AS area,      COALESCE(Q.perimetre, R.perimetre, C.perimetre, E.perimetre, TR.perimetre, TI.perimetre, Ro.perimetre, Pe.perimetre, He.perimetre, Oc.perimetre) AS perimetre,      COALESCE(Q.color, R.color, C.color, E.color, TR.color, TI.color, Ro.color, Pe.color, He.color, Oc.color) AS color FROM Poligons P LEFT JOIN Quadrats Q ON P.id_Poligon = Q.id_Poligon LEFT JOIN Rectangles R ON P.id_Poligon = R.id_Poligon LEFT JOIN Cercles C ON P.id_Poligon = C.id_Poligon LEFT JOIN Elipses E ON P.id_Poligon = E.id_Poligon LEFT JOIN Triangles_Rectangles TR ON P.id_Poligon = TR.id_Poligon LEFT JOIN Triangles_Isosceles TI ON P.id_Poligon = TI.id_Poligon LEFT JOIN Rombes Ro ON P.id_Poligon = Ro.id_Poligon LEFT JOIN Pentagons Pe ON P.id_Poligon = Pe.id_Poligon LEFT JOIN Hexagons He ON P.id_Poligon = He.id_Poligon LEFT JOIN Octagons Oc ON P.id_Poligon = Oc.id_Poligon;\r\n";
+                        xsql = $"SELECT       P.id_Poligon,       P.tipus,   COALESCE(Q.id_Quadrat, R.id_Rectangle, C.id_Cercle, E.id_Elipse, TR.id_TriangleRect , TI.id_TriangleIso, Ro.id_Rombe , Pe.id_Pentagon, He.id_Hexagon , Oc.id_Octagon) AS idFigura , COALESCE(Q.nom, R.nom, C.nom, E.nom, TR.nom, TI.nom, Ro.nom, Pe.nom, He.nom, Oc.nom) AS Nombre , P.area, P.perimetre, P.color FROM Poligons P LEFT JOIN Quadrats Q ON P.id_Poligon = Q.id_Poligon LEFT JOIN Rectangles R ON P.id_Poligon = R.id_Poligon LEFT JOIN Cercles C ON P.id_Poligon = C.id_Poligon LEFT JOIN Elipses E ON P.id_Poligon = E.id_Poligon LEFT JOIN Triangles_Rectangles TR ON P.id_Poligon = TR.id_Poligon LEFT JOIN Triangles_Isosceles TI ON P.id_Poligon = TI.id_Poligon LEFT JOIN Rombes Ro ON P.id_Poligon = Ro.id_Poligon LEFT JOIN Pentagons Pe ON P.id_Poligon = Pe.id_Poligon LEFT JOIN Hexagons He ON P.id_Poligon = He.id_Poligon LEFT JOIN Octagons Oc ON P.id_Poligon = Oc.id_Poligon;\r\n";
                     }
                     else
                     {
@@ -95,7 +95,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                     {
 
                         id = (int)fila.Cells["id_Poligon"].Value;
-                        id_Figura = (int)fila.Cells[2].Value;
+                        //id_Figura = (int)fila.Cells[2].Value;
                         switch (fila.Cells["tipus"].Value.ToString())
                         {
                             case "Quadrat":
@@ -146,7 +146,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                         p.area = (double)fila.Cells["area"].Value;
                         p.perimetre = (double)fila.Cells["perimetre"].Value;
                         p.color = (int)fila.Cells["color"].Value;
-                        p.getPoligons(bd, id_Figura);
+                        p.getPoligons(bd, id);
                         llPoligons.Add(p);
 
                     }
