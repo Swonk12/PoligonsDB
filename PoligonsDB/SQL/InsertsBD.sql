@@ -111,11 +111,11 @@ VALUES
 -- Insertar en la tabla Triangles_Rectangles
 INSERT INTO Triangles_Rectangles (id_Poligon, nom, ladoRect, base, altura)
 VALUES
-(21, 'Triangle Rectangle A', 10, 12.0, 8.0), 
-(22, 'Triangle Rectangle B', 15, 14.0, 10.0),
-(23, 'Triangle Rectangle C', 20, 16.0, 12.0), 
-(24, 'Triangle Rectangle D', 25, 18.0, 14.0),
-(25, 'Triangle Rectangle E', 30, 20.0, 16.0); 
+(21, 'Triangle Rectangle A', 0, 12.0, 8.0), 
+(22, 'Triangle Rectangle B', 1, 14.0, 10.0),
+(23, 'Triangle Rectangle C', 0, 16.0, 12.0), 
+(24, 'Triangle Rectangle D', 1, 18.0, 14.0),
+(25, 'Triangle Rectangle E', 0, 20.0, 16.0); 
 
 -- Insertar en la tabla Triangles_Isosceles
 INSERT INTO Triangles_Isosceles (id_Poligon, nom, base, altura)

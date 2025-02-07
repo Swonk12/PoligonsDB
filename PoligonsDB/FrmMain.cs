@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -220,33 +221,32 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
                     // Obtener la fila seleccionada
                     DataGridViewRow fila = dgPoligons.SelectedRows[0];
-                    int cont = 0, indexLado, indexEnd;
+                    int cont = fila.Index, indexLado, indexEnd, lado;
                     int xCentro = tbInfo.Left + tbInfo.Width / 2;
                     int yCentro = tbInfo.Bottom + 50;
-                    int infoColor;
+                    double ancho, altura, radio, radioMayor, radioMenor, diagonalMayor, diagonalMenor;
+                    string todo, ladoString;
                     Graphics g = e.Graphics;
                     switch (fila.Cells["tipus"].Value.ToString())
                     {
                         case "Quadrat":
-
-                            string todo = llPoligons[cont].dadesPoligon();
+                            todo = llPoligons[cont].dadesPoligon();
 
                             indexLado = todo.IndexOf("Lado :") + "Lado :".Length;
 
                             indexEnd = todo.IndexOf("\r\n", indexLado);
-                            string ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
                             double ladoDouble = double.Parse(ladoString);
                             int ladoInt = (int)Math.Round(ladoDouble);
-                            int colorStrig = llPoligons[cont].color;
 
                             Pen p = new Pen(Color.Black);
                             Rectangle r = new Rectangle(xCentro, yCentro, ladoInt, ladoInt);
 
-                            if (colorStrig == 1)
+                            if (llPoligons[cont].color == 1)
                             {
-                                Brush b = new SolidBrush(Color.Blue);
-                                g.FillRectangle(b, r);
+                                Brush brush = new SolidBrush(Color.Blue);
+                                g.FillRectangle(brush, r);
                             }
                             else
                             {
@@ -255,175 +255,251 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                             break;
 
                         case "Rectangle":
-                            //                                string anchoString = "";
-                            //                                string altoString = "";
+                    
+                            todo = llPoligons[cont].dadesPoligon();
 
-                            //                            
+                            indexLado = todo.IndexOf("Ancho :") + "Ancho :".Length;
 
-                            //                                Pen penR = new Pen(Color.Black);
-                            //                                Rectangle rect = new Rectangle(xCentro - (ancho / 2), yCentro - (alto / 2), ancho, alto);
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //                                if (colorStrig == "TRUE")
-                            //                                {
-                            //                                    // Pintar rectángulo relleno
-                            //                                    Brush brush = new SolidBrush(Color.Blue);
-                            //                                    g.FillRectangle(brush, rect);
-                            //                                }
-                            //                                else
-                            //                                {
-                            //                                    // Dibujar sin relleno
-                            //                                    g.DrawRectangle(penR, rect);
-                            //                                }
+                            ancho = double.Parse(ladoString);
+
+                            indexLado = todo.IndexOf("Alto :") + "Alto :".Length;
+
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
+
+                            altura = double.Parse(ladoString);
+
+                            Pen penR = new Pen(Color.Black);
+                            Rectangle rect = new Rectangle(xCentro, yCentro, (int)Math.Round(ancho), (int)Math.Round(altura));
+
+
+                            if (llPoligons[cont].color == 1) 
+                            { 
+                            
+                                Brush brush = new SolidBrush(Color.Blue);
+                                g.FillRectangle(brush, rect);
+                            
+                            }else 
+                            { 
+                            
+                                g.DrawRectangle(penR, rect);
+                    
+                            }
+
                             break;
 
                         case "Cercle":
-                            //info = tbInfo.Text;
-                            //partes = info.Split(':');
-                            //string radioString = "";
+                            todo = llPoligons[cont].dadesPoligon();
+                            indexLado = todo.IndexOf("Radi :") + "Radi :".Length;
 
-                            //// Extraer el valor del radio
-                            //radioString = partes[5].Replace("\r\nArea", "").Trim();
-                            //int radio = int.Parse(radioString);
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //colorStrig = partes[3].Replace("\r\nNom", "").Trim();
+                            radio = Math.Round(double.Parse(ladoString),0);
 
-                            //Pen penC = new Pen(Color.Black);
-                            //Rectangle circle = new Rectangle(xCentro - radio, yCentro - radio, radio * 2, radio * 2);
+                            Pen penC = new Pen(Color.Black);
+                            Rectangle circle = new Rectangle(xCentro - (int)radio, yCentro - (int)radio, (int)radio * 2, (int)radio * 2);
 
-                            //if (colorStrig == "TRUE")
-                            //{
-                            //    // Pintar círculo relleno
-                            //    Brush brushC = new SolidBrush(Color.Red);
-                            //    g.FillEllipse(brushC, circle);
-                            //}
-                            //else
-                            //{
-                            //    // Dibujar sin relleno
-                            //    g.DrawEllipse(penC, circle);
-                            //}
+                            if (llPoligons[cont].color == 1)
+                            {
+                                // Pintar círculo relleno
+                                Brush brushC = new SolidBrush(Color.Red);
+                                g.FillEllipse(brushC, circle);
+                            }
+                            else
+                            {
+                                // Dibujar sin relleno
+                                g.DrawEllipse(penC, circle);
+                            }
                             break;
 
                         case "Elipse":
-                            //info = tbInfo.Text;
-                            //partes = info.Split(':');
-                            //string anchoStringE = "";
-                            //string altoStringE = "";
+                            todo = llPoligons[cont].dadesPoligon();
+                            indexLado = todo.IndexOf("Radi Major:") + "Radi Major:".Length;
 
-                            //// Extraer valores de ancho y alto de la elipse
-                            //anchoStringE = partes[5].Replace("\r\nAltura", "").Trim();
-                            //altoStringE = partes[7].Replace("\r\nArea", "").Trim();
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //int anchoE = int.Parse(anchoStringE);
-                            //int altoE = int.Parse(altoStringE);
+                            radioMayor = Math.Round(double.Parse(ladoString),0);
 
-                            //colorStrig = partes[3].Replace("\r\nNom", "").Trim();
+                            indexLado = todo.IndexOf("Radi Menor:") + "Radi Menor:".Length;
 
-                            //Pen penE = new Pen(Color.Black);
-                            //Rectangle ellipseRect = new Rectangle(xCentro - (anchoE / 2), yCentro - (altoE / 2), anchoE, altoE);
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //if (colorStrig == "TRUE")
-                            //{
-                            //    // Pintar elipse rellena
-                            //    Brush brushE = new SolidBrush(Color.Green);
-                            //    g.FillEllipse(brushE, ellipseRect);
-                            //}
-                            //else
-                            //{
-                            //    // Dibujar elipse sin relleno
-                            //    g.DrawEllipse(penE, ellipseRect);
-                            //}
-                            //break;
+                            radioMenor = Math.Round(double.Parse(ladoString),0);
+                            
+                            Pen penE = new Pen(Color.Black);
 
-                        case "Triangle_Rectangle":
-                            //p = new ClTriangleRectangle(bd, id);
-                            //llTriangles_Rectangles.Add((ClTriangleRectangle)p);
+                            Rectangle ellipseRect = new Rectangle(
+                                xCentro - (int)radioMayor, // Centrar la elipse en X
+                                yCentro - (int)radioMenor, // Centrar la elipse en Y
+                                (int)radioMayor * 2,       // Ancho total
+                                (int)radioMenor * 2        // Alto total
+                            );
+
+                            if (llPoligons[cont].color == 1)
+                            {
+                                Brush brushE = new SolidBrush(Color.Green);
+                                g.FillEllipse(brushE, ellipseRect);
+                            }
+                            else
+                            {
+                                g.DrawEllipse(penE, ellipseRect);
+                            }
                             break;
-                        case "Triangle_Isosceles":
-                            //info = tbInfo.Text;
-                            //partes = info.Split(':');
 
-                            //string baseString = partes[5].Replace("\r\nAltura", "").Trim();
-                            //string alturaString = partes[7].Replace("\r\nArea", "").Trim();
-                            //string colorString = partes[3].Replace("\r\nNom", "").Trim();
+                        case "Triangle Rectangle":
+                            todo = llPoligons[cont].dadesPoligon();
+                            indexLado = todo.IndexOf("Base:") + "Base:".Length;
 
-                            //if (!int.TryParse(baseString, out int baseT) || !int.TryParse(alturaString, out int alturaT))
-                            //    break;
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //// Calcular los puntos del triángulo isósceles
-                            //Point p1 = new Point(xCentro, yCentro - (alturaT / 2)); // Vértice superior
-                            //Point p2 = new Point(xCentro - (baseT / 2), yCentro + (alturaT / 2)); // Esquina inferior izquierda
-                            //Point p3 = new Point(xCentro + (baseT / 2), yCentro + (alturaT / 2)); // Esquina inferior derecha
+                            ancho = Math.Round(double.Parse(ladoString),0);
 
-                            //Point[] puntosTriangulo = { p1, p2, p3 };
+                            indexLado = todo.IndexOf("Altura:") + "Altura:".Length;
 
-                            //Pen penT = new Pen(Color.Black);
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //if (colorString == "TRUE")
-                            //{
-                            //    // Pintar triángulo relleno
-                            //    Brush brushT = new SolidBrush(Color.Orange);
-                            //    g.FillPolygon(brushT, puntosTriangulo);
-                            //}
-                            //else
-                            //{
-                            //    // Dibujar sin relleno
-                            //    g.DrawPolygon(penT, puntosTriangulo);
-                            //}
+                            altura = Math.Round(double.Parse(ladoString),0);
+
+                            indexLado = todo.IndexOf("Lado:") + "Lado:".Length;
+
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
+
+                            lado = int.Parse(ladoString);
+                            Point[] puntos;
+                            Pen penT = new Pen(Color.Black);
+                            if (lado == 0) 
+                            { 
+                            
+                                puntos = new Point[]
+                                {
+                                    new Point(xCentro, yCentro),                       
+                                    new Point(xCentro + (int)ancho, yCentro),          
+                                    new Point(xCentro, yCentro - (int)altura)    
+                                };
+                            
+                                if (llPoligons[cont].color == 1) 
+                                { 
+                                    Brush brushT = new SolidBrush(Color.Orange);
+                                    g.FillPolygon(brushT, puntos);
+                                }else{
+                                    g.DrawPolygon(penT, puntos);
+                                }
+                            }else{
+                                puntos = new Point[]
+                                {
+                                    new Point(xCentro, yCentro),                         
+                                    new Point(xCentro + (int)ancho, yCentro),          
+                                    new Point(xCentro + (int)ancho, yCentro - (int)altura) 
+                                };
+
+                                if (llPoligons[cont].color == 1) 
+                                { 
+                                    Brush brushT = new SolidBrush(Color.Orange);
+                                    g.FillPolygon(brushT, puntos);
+                                }else{
+                                    g.DrawPolygon(penT, puntos);
+                                }
+                    
+                            }
+
+                            break;
+                        case "Triangle Isosceles":
+                            todo = llPoligons[cont].dadesPoligon();
+                            indexLado = todo.IndexOf("Base:") + "Base:".Length;
+
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
+
+                            ancho = Math.Round(double.Parse(ladoString),0);
+
+                            indexLado = todo.IndexOf("Altura:") + "Altura:".Length;
+
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
+
+                            altura = Math.Round(double.Parse(ladoString),0);
+
+                            Point[] puntos3;
+                            puntos3 = new Point[]
+                            {
+                                new Point(xCentro - (int)(ancho / 2), yCentro + (int)(altura / 2)), // Vértice inferior izquierdo
+                                new Point(xCentro + (int)(ancho / 2), yCentro + (int)(altura / 2)), // Vértice inferior derecho
+                                new Point(xCentro, yCentro - (int)(altura / 2))                             // Vértice superior
+                            };
+
+                            Pen penTI = new Pen(Color.Black);
+                            if (llPoligons[cont].color == 1)
+                            {
+                                // Pintar triángulo isósceles relleno
+                                Brush brushTI = new SolidBrush(Color.Green);
+                                g.FillPolygon(brushTI, puntos3);
+                            }
+                            else
+                            {
+                                // Dibujar solo el contorno
+                                g.DrawPolygon(penTI, puntos3);
+                            }
                             break;
 
                         case "Rombe":
-                            //info = tbInfo.Text;
-                            //partes = info.Split(':');
+                            todo = llPoligons[cont].dadesPoligon();
+                            indexLado = todo.IndexOf("Diagonal Major:") + "Diagonal Major:".Length;
 
-                            //if (partes.Length < 8) // Verificar que haya suficientes partes
-                            //    break;
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //string diagonalMayorString = partes[5].Replace("\r\nDiagonalMenor", "").Trim();
-                            //string diagonalMenorString = partes[7].Replace("\r\nArea", "").Trim();
-                            //string colorString2 = partes[3].Replace("\r\nNom", "").Trim();
+                            diagonalMayor = Math.Round(double.Parse(ladoString),0);
 
-                            //if (!int.TryParse(diagonalMayorString, out int diagonalMayor) || !int.TryParse(diagonalMenorString, out int diagonalMenor))
-                            //    break;
+                            indexLado = todo.IndexOf("Diagonal Menor:") + "Diagonal Menor:".Length;
 
-                            //// Calcular los vértices del rombo
-                            //Point p1r = new Point(xCentro, yCentro - (diagonalMayor / 2)); // Vértice superior
-                            //Point p2r = new Point(xCentro + (diagonalMenor / 2), yCentro); // Vértice derecho
-                            //Point p3r = new Point(xCentro, yCentro + (diagonalMayor / 2)); // Vértice inferior
-                            //Point p4 = new Point(xCentro - (diagonalMenor / 2), yCentro); // Vértice izquierdo
+                            indexEnd = todo.IndexOf("\r\n", indexLado);
+                            ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                            //Point[] puntosRombo = { p1r, p2r, p3r, p4 };
+                            diagonalMenor = Math.Round(double.Parse(ladoString),0);
+                            Point[] puntos2;
+    
+                            puntos2 = new Point[]
+                            {
+                                new Point(xCentro - (int)(diagonalMenor / 2), yCentro + (int)(diagonalMayor / 2)), // Vértice inferior izquierdo
+                                new Point(xCentro + (int)(diagonalMenor / 2), yCentro + (int)(diagonalMayor / 2)), // Vértice inferior derecho
+                                new Point(xCentro, yCentro - (int)(diagonalMayor / 2))                             // Vértice superior
+                            };
 
-                            //Pen penRo = new Pen(Color.Black);
+                            Pen penTIR = new Pen(Color.Black);
+                            if (llPoligons[cont].color == 1)
+                            {
+                                Brush brushTI = new SolidBrush(Color.Purple);
+                                g.FillPolygon(brushTI, puntos2);
+                            }
+                            else
+                            {
 
-                            //if (colorString2 == "TRUE")
-                            //{
-                            //    // Pintar rombo relleno
-                            //    Brush brushR = new SolidBrush(Color.Purple);
-                            //    g.FillPolygon(brushR, puntosRombo);
-                            //}
-                            //else
-                            //{
-                            //    // Dibujar sin relleno
-                            //    g.DrawPolygon(penRo, puntosRombo);
-                            //}
+                                 g.DrawPolygon(penTIR, puntos2);
+                            }
                             break;
 
                         case "Pentagon":
-                            cont = fila.Index;
                             indexLado = (llPoligons[cont].dadesPoligon()).IndexOf("Lado :") + "Lado :".Length;
                             indexEnd = (llPoligons[cont].dadesPoligon()).IndexOf("\r\n", indexLado);
                             ladoString = (llPoligons[cont].dadesPoligon()).Substring(indexLado, indexEnd - indexLado).Trim();
                             ladoDouble = Math.Round(double.Parse(ladoString), 2);
 
-                            infoColor = llPoligons[cont].color;
-
                             Point[] vPuntsPentagon = CalcularPuntosPentagono(xCentro, yCentro, ladoDouble);
-                            if (infoColor == 1)
+                            if (llPoligons[cont].color == 1)
                             {
                                 Brush brush = new SolidBrush(Color.Blue);
                                 g.FillPolygon(brush, vPuntsPentagon);
                                 g.DrawPolygon(new Pen(Color.Black, 2), vPuntsPentagon);
-                            }else if (infoColor == 0)
+                            }else if (llPoligons[cont].color == 0)
                             {
                                 Pen pen = new Pen(Color.Black, 2);
                                 g.DrawPolygon(pen, vPuntsPentagon);
@@ -439,10 +515,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                             ladoString = (llPoligons[cont].dadesPoligon()).Substring(indexLado, indexEnd - indexLado).Trim();
                             ladoDouble = Math.Round(double.Parse(ladoString), 2);
 
-                            infoColor = llPoligons[cont].color;
                             Point[] vPuntsHexagono = CalcularPuntosHexagono(xCentro, yCentro, ladoDouble);
 
-                            if (infoColor == 0)
+                            if (llPoligons[cont].color == 0)
                             {
                                 Brush brush = new SolidBrush(Color.Blue);
                                 g.FillPolygon(brush, vPuntsHexagono);
@@ -456,16 +531,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                             break;
 
                         case "Octagon":
-                            cont = fila.Index;
                             indexLado = (llPoligons[cont].dadesPoligon()).IndexOf("Lado :") + "Lado :".Length;
                             indexEnd = (llPoligons[cont].dadesPoligon()).IndexOf("\r\n", indexLado);
                             ladoString = (llPoligons[cont].dadesPoligon()).Substring(indexLado, indexEnd - indexLado).Trim();
                             ladoDouble = Math.Round(double.Parse(ladoString), 2);
 
-                            infoColor = llPoligons[cont].color;
                             Point[] vPuntsOctagono = CalcularPuntosOctagono(xCentro, yCentro, ladoDouble);
 
-                            if (infoColor == 0)
+                            if (llPoligons[cont].color == 0)
                             {
                                 Brush brush = new SolidBrush(Color.Blue);
                                 g.FillPolygon(brush, vPuntsOctagono);
@@ -478,7 +551,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
                             }
                             break;
                     }
-                    cont++;
                 }
 
 

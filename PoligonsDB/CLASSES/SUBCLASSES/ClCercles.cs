@@ -34,9 +34,9 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public override string dadesPoligon()
         {
-            return $"Nom: {nom}{Environment.NewLine}" +
-                   $"Radi: {radio}{Environment.NewLine}";
-        }
+            return $"Nom : {nom}{Environment.NewLine}" +
+                   $"Radi : {radio}{Environment.NewLine}";
+        } 
 
         public override bool eliminarPoligon(ClBd bd, int id)
         {

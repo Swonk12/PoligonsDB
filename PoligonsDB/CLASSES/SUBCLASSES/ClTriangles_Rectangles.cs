@@ -13,6 +13,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         public string nom { get; set; }
         public double baseTriangle { get; set; }
         public double altura { get; set; }
+        public int ladoRect {  get; set; }
 
         public ClTriangles_Rectangles(ClBd xbd, int xid) : base(xbd, xid)
         {
@@ -37,7 +38,8 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
         {
             return $"Nom: {nom}{Environment.NewLine}" +
                    $"Base: {baseTriangle}{Environment.NewLine}" +
-                   $"Altura: {altura}{Environment.NewLine}";
+                   $"Altura: {altura}{Environment.NewLine}" +
+                   $"Lado:  {ladoRect}{Environment.NewLine}";
         }
 
         public override bool eliminarPoligon(ClBd bd, int id)
@@ -57,6 +59,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
                 nom = xdset.Tables[0].Rows[0]["nom"].ToString();
                 baseTriangle = Convert.ToDouble(xdset.Tables[0].Rows[0]["base"]);
                 altura = Convert.ToDouble(xdset.Tables[0].Rows[0]["altura"]);
+                ladoRect = (int)(xdset.Tables[0].Rows[0]["ladoRect"]);
                 xb = true;
             }
             return xb;
