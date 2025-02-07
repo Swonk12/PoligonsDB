@@ -46,7 +46,8 @@ namespace PoligonsDB.FORMULARIS
                         xlado = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
                         area = xlado * xlado;
                         perimetro = xlado * 4;
-                        ClQuadrat bal = new ClQuadrat(bd, "Quadrat", tbNom.Text, xlado, area, perimetro, r.Next(0, 2);                        break;
+                        ClQuadrat bal = new ClQuadrat(bd, "Quadrat", tbNom.Text, xlado, area, perimetro, r.Next(0, 2));
+                        break;
                     case "Rectangles":
                         alto = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
                         ancho = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);

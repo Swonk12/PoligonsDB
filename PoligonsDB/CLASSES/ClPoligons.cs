@@ -25,29 +25,6 @@ namespace PoligonsDB.CLASSES
             id_Poligon = xid;
         }
 
-        public ClPoligons(ClBd xbd, String xtipus)
-        {
-            DataSet xdset = new DataSet();
-            String xsql = $"INSERT INTO Poligons(tipus) VALUES(''{tipus}')";
-
-            if (xbd.executarOrdre(xsql))
-            {
-                xsql = "SELECT TOP 1 Id FROM Poligons ORDER BY Id DESC";
-                xbd.getDades(xsql, xdset);
-                if (xdset.Tables[0].Rows.Count == 0)
-                {
-                    id_Poligon = -1;
-                    MessageBox.Show("No s'ha pogut recuperar l'Id del nou poligon", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    id_Poligon = (int)xdset.Tables[0].Rows[0].ItemArray[0];
-                    tipus = "";
-                }
-            }
-
-        }
-
         // Pentagon
         public ClPoligons(ClBd xbd, string tipo , double xarea, double xperimetre, int xcolor)
         {

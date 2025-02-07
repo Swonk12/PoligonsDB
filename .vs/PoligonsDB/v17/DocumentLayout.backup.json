@@ -3,23 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|c:\\users\\marc\\documents\\github\\poligonsdb\\poligonsdb\\classes\\subclasses\\clrombes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\clrombes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\formularis\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\formularis\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\subclasses\\clrombes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\clrombes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|c:\\users\\marc\\documents\\github\\poligonsdb\\poligonsdb\\formularis\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\formularis\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\formularis\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|c:\\users\\marc\\documents\\github\\poligonsdb\\poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\clelipses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|c:\\users\\marc\\documents\\github\\poligonsdb\\poligonsdb\\classes\\subclasses\\cltriangles_isosceles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\poligonsdb\\classes\\subclasses\\cltriangles_isosceles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB51B89D-4F48-4066-98AA-66AC0BF83BBB}|PoligonsDB\\PoligonsDB.csproj|solutionrelative:poligonsdb\\classes\\subclasses\\cltriangles_isosceles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -37,6 +37,10 @@
           "SelectedChildIndex": 6,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ClTriangles_Isosceles.cs",
@@ -46,8 +50,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClTriangles_Isosceles.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA3wBUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T17:36:56.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T17:36:56.037Z"
             },
             {
               "$type": "Document",
@@ -59,8 +62,7 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClElipses.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA1wBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T17:29:26.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T17:29:26.664Z"
             },
             {
               "$type": "Document",
@@ -71,12 +73,7 @@
               "ToolTip": "C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\FORMULARIS\\FrmAdd.cs [Dise\u00F1o]",
               "RelativeToolTip": "PoligonsDB\\FORMULARIS\\FrmAdd.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T17:10:42.47Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2025-02-07T17:10:42.47Z"
             },
             {
               "$type": "Document",
@@ -88,12 +85,11 @@
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClQuadrat.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAADgvxQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:28:57.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T09:28:57.266Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FrmAdd.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\FORMULARIS\\FrmAdd.cs",
               "RelativeDocumentMoniker": "PoligonsDB\\FORMULARIS\\FrmAdd.cs",
@@ -101,18 +97,17 @@
               "RelativeToolTip": "PoligonsDB\\FORMULARIS\\FrmAdd.cs",
               "ViewState": "AgIAAHsAAAAAAAAAAAAUwDkAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T16:45:22.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T16:45:22.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ClRombes.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\CLASSES\\SUBCLASSES\\ClRombes.cs",
               "RelativeDocumentMoniker": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClRombes.cs",
               "ToolTip": "C:\\Users\\Marc\\Documents\\GitHub\\PoligonsDB\\PoligonsDB\\CLASSES\\SUBCLASSES\\ClRombes.cs",
               "RelativeToolTip": "PoligonsDB\\CLASSES\\SUBCLASSES\\ClRombes.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-06T21:43:54.487Z",
               "EditorCaption": ""
