@@ -24,7 +24,7 @@ namespace PoligonsDB
         //String cadenaConnexio = "Data Source=Vidallaptop;Initial Catalog=PoligonsBD;Integrated Security=True";
         //String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZt0PpACLEye0nls4yvFgAQAAAACAAAAAAAQZgAAAAEAACAAAACfiYECuEAFyofHsBt4jPIkK+ghmMpQlVHxWuo9hgxnGwAAAAAOgAAAAAIAACAAAADFlKTjjyXotH2DaVOOQhuGiInjKxNk7znYQ1db7siYSVAAAABfOk0PUD2QTWtnsyKF2ju9IWDmOJZYufQtfZCisX1dfuyZTpYOPg2VJX2LYu4cs4kJD+EAhDRKPxYLT6nZsM2rSXAs0lGJo7ie3Q1IXia0aEAAAAAGiZGSqbHu+f1xTRzK6f/OikdZy/v2yR6zI8Cc3dBpFN8Dlun+VXfMGwzGKStQYaKLllbbU0QdFf5KVuEW7WKt";
         // Cadena Marc
-        String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXVOCHU/ie0KxSzCJEKv98gQAAAACAAAAAAAQZgAAAAEAACAAAAAo5GPujPFhb4OVeXsT1Jb8tThXGkqDCkoF0Msm9KQdrgAAAAAOgAAAAAIAACAAAABVQ5spPkHxS734nQUhLf7vvGH4wZzvjhNj0Ys/9cB2clAAAABtqIiQzS3rQdkMlSYUwsUQ4LPmjK87wadqC+Nb517wC4dD++ZsQJIZKie3p7zLKeoSn3ViutsUq3riGGPV5pbAjE5jpvSFAv0N8V4vZzd0JkAAAABW90RTIuCZEQl4dA+NBOZgEzVOgqWlleruABji3RQDGHHe6TPxKmqknSopRYmc3SMPCLihLnVSQnIDS++LNTWe";
+        String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZt0PpACLEye0nls4yvFgAQAAAACAAAAAAAQZgAAAAEAACAAAACfiYECuEAFyofHsBt4jPIkK+ghmMpQlVHxWuo9hgxnGwAAAAAOgAAAAAIAACAAAADFlKTjjyXotH2DaVOOQhuGiInjKxNk7znYQ1db7siYSVAAAABfOk0PUD2QTWtnsyKF2ju9IWDmOJZYufQtfZCisX1dfuyZTpYOPg2VJX2LYu4cs4kJD+EAhDRKPxYLT6nZsM2rSXAs0lGJo7ie3Q1IXia0aEAAAAAGiZGSqbHu+f1xTRzK6f/OikdZy/v2yR6zI8Cc3dBpFN8Dlun+VXfMGwzGKStQYaKLllbbU0QdFf5KVuEW7WKt";
 
         // Listas
         List<ClPoligons> llPoligons { get; set; } = new List<ClPoligons>();
@@ -460,25 +460,21 @@ namespace PoligonsDB
                 case "Rombe":
                     todo = llPoligons[cont].dadesPoligon();
                     indexLado = todo.IndexOf("Diagonal Major:") + "Diagonal Major:".Length;
-
                     indexEnd = todo.IndexOf("\r\n", indexLado);
                     ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
-
                     diagonalMayor = Math.Round(double.Parse(ladoString), 0);
 
                     indexLado = todo.IndexOf("Diagonal Menor:") + "Diagonal Menor:".Length;
-
                     indexEnd = todo.IndexOf("\r\n", indexLado);
                     ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
-
                     diagonalMenor = Math.Round(double.Parse(ladoString), 0);
-                    Point[] puntos2;
 
-                    puntos2 = new Point[]
+                    Point[] puntos2 = new Point[]
                     {
-                                new Point(xCentro - (int)(diagonalMenor / 2), yCentro + (int)(diagonalMayor / 2)), // Vértice inferior izquierdo
-                                new Point(xCentro + (int)(diagonalMenor / 2), yCentro + (int)(diagonalMayor / 2)), // Vértice inferior derecho
-                                new Point(xCentro, yCentro - (int)(diagonalMayor / 2))                             // Vértice superior
+                        new Point(xCentro, yCentro - (int)(diagonalMayor / 2)), // Vértice superior
+                        new Point(xCentro + (int)(diagonalMenor / 2), yCentro), // Vértice derecho
+                        new Point(xCentro, yCentro + (int)(diagonalMayor / 2)), // Vértice inferior
+                        new Point(xCentro - (int)(diagonalMenor / 2), yCentro)  // Vértice izquierdo
                     };
 
                     Pen penTIR = new Pen(Color.Black);
@@ -489,10 +485,10 @@ namespace PoligonsDB
                     }
                     else
                     {
-
                         g.DrawPolygon(penTIR, puntos2);
                     }
                     break;
+
 
                 case "Pentagon":
                     indexLado = (llPoligons[cont].dadesPoligon()).IndexOf("Lado :") + "Lado :".Length;
