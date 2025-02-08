@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,10 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public ClRombes(ClBd xbd, string xtipo , string xnom, double xdiagonalMayor, double xdiagonalMenor, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            string xsql = $"INSERT INTO Rombes (id_Poligon, nom, diagonal_mayor, diagonal_menor) VALUES({id_Poligon}, '{xnom}', {xdiagonalMayor}, {xdiagonalMenor})";
+            string xdiagonalMayorStr = xdiagonalMayor.ToString(CultureInfo.InvariantCulture);
+            string xdiagonalMenorStr = xdiagonalMenor.ToString(CultureInfo.InvariantCulture);
+
+            string xsql = $"INSERT INTO Rombes (id_Poligon, nom, diagonal_mayor, diagonal_menor) VALUES({id_Poligon}, '{xnom}', {xdiagonalMayorStr}, {xdiagonalMenorStr})";
 
             if (xbd.executarOrdre(xsql))
             {

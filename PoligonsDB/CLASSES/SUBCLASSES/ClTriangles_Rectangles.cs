@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,11 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public ClTriangles_Rectangles(ClBd xbd, string xtipo, int xladoRect,string xnom, double xbase, double xaltura, double xarea, int xcolor, double xperimetre) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            string xsql = $"INSERT INTO Triangles_Rectangles (id_Poligon, nom, ladoRect, base, altura) VALUES({id_Poligon}, '{xnom}', {xladoRect}, {xbase}, {xaltura})";
+            string xladoRectStr = xladoRect.ToString(CultureInfo.InvariantCulture);
+            string xbaseStr = xbase.ToString(CultureInfo.InvariantCulture);
+            string xalturaStr = xaltura.ToString(CultureInfo.InvariantCulture);
+
+            string xsql = $"INSERT INTO Triangles_Rectangles (id_Poligon, nom, ladoRect, base, altura) VALUES({id_Poligon}, '{xnom}', {xladoRectStr}, {xbaseStr}, {xalturaStr})";
 
             if (xbd.executarOrdre(xsql))
             {

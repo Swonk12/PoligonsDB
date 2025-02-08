@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,10 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public ClQuadrat(ClBd xbd, string xtipo, string xnom, double xlado, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Quadrats (id_Poligon, nom, lado) VALUES({id_Poligon}, '{xnom}', {xlado})";
+            // Convertir xlado en un buen formato para nuestro Insert
+            string xladoStr = xlado.ToString(CultureInfo.InvariantCulture);
+
+            String xsql = $"INSERT INTO Quadrats (id_Poligon, nom, lado) VALUES({id_Poligon}, '{xnom}', {xladoStr})";
             if (xbd.executarOrdre(xsql))
             {
                 MessageBox.Show($"Polígon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);

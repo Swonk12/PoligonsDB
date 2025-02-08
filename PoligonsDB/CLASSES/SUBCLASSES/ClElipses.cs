@@ -9,6 +9,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 {
     using System;
     using System.Data;
+    using System.Globalization;
     using System.Windows.Forms;
 
     namespace PoligonsDB.CLASSES.SUBCLASSES
@@ -26,7 +27,10 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
             public ClElipses(ClBd xbd, string xtipo, string xnom, double xradioMayor, double xradioMenor, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo , xarea, xperimetre, xcolor)
             {
-                string xsql = $"INSERT INTO Elipses (id_Poligon, nom, radio_mayor, radio_menor) VALUES({id_Poligon}, '{xnom}', {xradioMayor}, {xradioMenor})";
+                string xradioMayorStr = xradioMayor.ToString(CultureInfo.InvariantCulture);
+                string xradioMenorStr = xradioMenor.ToString(CultureInfo.InvariantCulture);
+
+                string xsql = $"INSERT INTO Elipses (id_Poligon, nom, radio_mayor, radio_menor) VALUES({id_Poligon}, '{xnom}', {xradioMayorStr}, {xradioMenorStr})";
 
                 if (xbd.executarOrdre(xsql))
                 {

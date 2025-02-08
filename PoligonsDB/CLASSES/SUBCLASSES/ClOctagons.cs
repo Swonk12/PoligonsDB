@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,10 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public ClOctagons(ClBd xbd, string xtipo, string xnom, double xlado, double xapotema, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Octagons (id_Poligon, nom, lado, apotema)  VALUES({id_Poligon}, {xnom}, {xlado}, {xapotema})";
+            string xladoStr = xlado.ToString(CultureInfo.InvariantCulture);
+            string xapotemaStr = xapotema.ToString(CultureInfo.InvariantCulture);
+
+            String xsql = $"INSERT INTO Octagons (id_Poligon, nom, lado, apotema)  VALUES({id_Poligon}, '{xnom}', {xladoStr}, {xapotemaStr})";
             if (xbd.executarOrdre(xsql))
             {
                 MessageBox.Show($"Octagon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);

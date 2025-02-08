@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,9 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public ClCercles(ClBd xbd, string xtipo, double xradio, string xnom, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            string xsql = $"INSERT INTO Cercles (id_Poligon, nom, radio) VALUES({id_Poligon}, '{xnom}', {xradio})";
+            string xradioStr = xradio.ToString(CultureInfo.InvariantCulture);
+
+            string xsql = $"INSERT INTO Cercles (id_Poligon, nom, radio) VALUES({id_Poligon}, '{xnom}', {xradioStr})";
 
             if (xbd.executarOrdre(xsql))
             {

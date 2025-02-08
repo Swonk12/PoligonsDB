@@ -68,7 +68,7 @@ namespace PoligonsDB.FORMULARIS
                         perimetro = Math.Round((Math.PI * (3 * (xradioMayor + xradioMenor)) - (Math.Sqrt((3 * xradioMayor + xradioMenor) * (xradioMayor + 3 * xradioMenor)))),2);
                         ClElipses hum = new ClElipses(bd, "Elipse", tbNom.Text, xradioMayor, xradioMenor, area, perimetro, r.Next(0,2));
                         break;
-                    case "TrianglesRectangles":
+                    case "TrianglesRectangles ":
                         xbase = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
                         xaltura = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
                         double hipotenusa = Math.Round(Math.Sqrt(Math.Pow(xbase, 2) + Math.Pow(xaltura, 2)), 2);

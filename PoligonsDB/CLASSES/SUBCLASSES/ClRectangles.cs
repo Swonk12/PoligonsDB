@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,11 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public ClRectangle(ClBd xbd, string xtipo ,double xalto, string xnom, double xancho, double xarea, double xperimetre, int xcolor) : base(xbd, xtipo, xarea, xperimetre, xcolor)
         {
-            String xsql = $"INSERT INTO Rectangles (id_Poligon, nom, ancho, alto) VALUES({id_Poligon}, '{xnom}', {xancho}, {xalto})";
+            // Convertir los valores double a string con punto decimal
+            string xanchoStr = xancho.ToString(CultureInfo.InvariantCulture);
+            string xaltoStr = xalto.ToString(CultureInfo.InvariantCulture);
+
+            String xsql = $"INSERT INTO Rectangles (id_Poligon, nom, ancho, alto) VALUES({id_Poligon}, '{xnom}', {xanchoStr}, {xaltoStr})";
 
             if (xbd.executarOrdre(xsql))
             {
