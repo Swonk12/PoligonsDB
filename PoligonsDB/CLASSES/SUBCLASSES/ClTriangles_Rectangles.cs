@@ -41,10 +41,12 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
 
         public override string dadesPoligon()
         {
+            string lado = (ladoRect == 0) ? "izquierda" : "derecha";
+
             return $"Nom: {nom}{Environment.NewLine}" +
                    $"Base: {baseTriangle}{Environment.NewLine}" +
                    $"Altura: {altura}{Environment.NewLine}" +
-                   $"Lado:  {ladoRect}{Environment.NewLine}";
+                   $"El lado de 90º se encuentra en la {lado}{Environment.NewLine}";
         }
 
         public override bool eliminarPoligon(ClBd bd, int id)

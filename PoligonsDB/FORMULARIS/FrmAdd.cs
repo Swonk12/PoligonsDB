@@ -110,7 +110,7 @@ namespace PoligonsDB.FORMULARIS
                         perimetro = 6 * xlado;
                         area = (perimetro * xapotema) / 2;
 
-                        ClHexagons hexa = new ClHexagons(bd, "Hexagons", tbNom.Text, xlado, xapotema, perimetro, area, r.Next(0, 2));
+                        ClHexagons hexa = new ClHexagons(bd, "Hexagon", tbNom.Text, xlado, xapotema, perimetro, area, r.Next(0, 2));
                         break;
                     case "Octògons":
                         xlado = Math.Round((r.NextDouble() + r.Next(20, 50)), 2);
@@ -119,7 +119,7 @@ namespace PoligonsDB.FORMULARIS
                         perimetro = 7 * xlado;
                         area = (perimetro * xapotema) / 2;
 
-                        ClOctagons oct = new ClOctagons(bd, "Octagons", tbNom.Text, xlado, xapotema, perimetro, area, r.Next(0, 2));
+                        ClOctagons oct = new ClOctagons(bd, "Octagon", tbNom.Text, xlado, xapotema, perimetro, area, r.Next(0, 2));
                         break;
                 }
                 this.Close();

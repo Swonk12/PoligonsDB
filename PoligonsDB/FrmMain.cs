@@ -24,7 +24,7 @@ namespace PoligonsDB
         //String cadenaConnexio = "Data Source=Vidallaptop;Initial Catalog=PoligonsBD;Integrated Security=True";
         //String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZt0PpACLEye0nls4yvFgAQAAAACAAAAAAAQZgAAAAEAACAAAACfiYECuEAFyofHsBt4jPIkK+ghmMpQlVHxWuo9hgxnGwAAAAAOgAAAAAIAACAAAADFlKTjjyXotH2DaVOOQhuGiInjKxNk7znYQ1db7siYSVAAAABfOk0PUD2QTWtnsyKF2ju9IWDmOJZYufQtfZCisX1dfuyZTpYOPg2VJX2LYu4cs4kJD+EAhDRKPxYLT6nZsM2rSXAs0lGJo7ie3Q1IXia0aEAAAAAGiZGSqbHu+f1xTRzK6f/OikdZy/v2yR6zI8Cc3dBpFN8Dlun+VXfMGwzGKStQYaKLllbbU0QdFf5KVuEW7WKt";
         // Cadena Marc
-        String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKZt0PpACLEye0nls4yvFgAQAAAACAAAAAAAQZgAAAAEAACAAAACfiYECuEAFyofHsBt4jPIkK+ghmMpQlVHxWuo9hgxnGwAAAAAOgAAAAAIAACAAAADFlKTjjyXotH2DaVOOQhuGiInjKxNk7znYQ1db7siYSVAAAABfOk0PUD2QTWtnsyKF2ju9IWDmOJZYufQtfZCisX1dfuyZTpYOPg2VJX2LYu4cs4kJD+EAhDRKPxYLT6nZsM2rSXAs0lGJo7ie3Q1IXia0aEAAAAAGiZGSqbHu+f1xTRzK6f/OikdZy/v2yR6zI8Cc3dBpFN8Dlun+VXfMGwzGKStQYaKLllbbU0QdFf5KVuEW7WKt";
+        String cadenaConnexio = @"AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXVOCHU/ie0KxSzCJEKv98gQAAAACAAAAAAAQZgAAAAEAACAAAABoT/ISt48Jx9sE0dv/GAC5Vp8fCSXZJ3gJLQoZAsHZfAAAAAAOgAAAAAIAACAAAAAKqPqBRQ/L4JDv6QBuhE6puCusVVbwBB5U2T8vIvAtB1AAAACgvGJozWE8fOHi+7cnDF54epHXqgjZ+VsEKAyUZy+0LkknW9hQ0t0GAmgV8albjieIP1kPRxJENyx1FVha5QADm1N9ZbAYCiaz0C64SyE3EkAAAABZ/jyPuz6hp2wau1U3/VagQreFEJKHXHfbOJ0vOFBHt4Ue/cnvdBIP3BEJsxatHwHWbJtmQxqzXPqjuzluKcMC";
 
         // Listas
         List<ClPoligons> llPoligons { get; set; } = new List<ClPoligons>();
@@ -369,15 +369,14 @@ namespace PoligonsDB
 
                     altura = Math.Round(double.Parse(ladoString), 0);
 
-                    indexLado = todo.IndexOf("Lado:") + "Lado:".Length;
+                    indexLado = todo.IndexOf("El lado de 90º se encuentra en la ") + "El lado de 90º se encuentra en la ".Length;
 
                     indexEnd = todo.IndexOf("\r\n", indexLado);
                     ladoString = todo.Substring(indexLado, indexEnd - indexLado).Trim();
 
-                    lado = int.Parse(ladoString);
                     Point[] puntos;
                     Pen penT = new Pen(Color.Black);
-                    if (lado == 0)
+                    if (ladoString == "izquierda")
                     {
 
                         puntos = new Point[]
@@ -629,9 +628,9 @@ namespace PoligonsDB
                 if (MessageBox.Show("Estàs segur que vols suprimir el Poligon seleccionat?", "ATENCIÓ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     DataGridViewRow fila = dgPoligons.SelectedRows[0];
-                    int cont = fila.Index;
-                    p = llPoligons[cont+1];
-                    p.eliminarPoligon(bd, cont);
+                    p = llPoligons[fila.Index];
+                    int idSel = llPoligons[fila.Index].id_Poligon;
+                    p.eliminarPoligon(bd, idSel);
                 }
             }
             getPoligons(true);

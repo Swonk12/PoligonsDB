@@ -26,7 +26,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             string xladoStr = xlado.ToString(CultureInfo.InvariantCulture);
             string xapotemaStr = xapotema.ToString(CultureInfo.InvariantCulture);
 
-            String xsql = $"INSERT INTO {xtipo} (id_Poligon, nom, lado, apotema)  VALUES({id_Poligon}, '{xnom}', {xladoStr}, {xapotemaStr})";
+            String xsql = $"INSERT INTO Hexagons (id_Poligon, nom, lado, apotema)  VALUES({id_Poligon}, '{xnom}', {xladoStr}, {xapotemaStr})";
             if (xbd.executarOrdre(xsql))
             {
                 MessageBox.Show($"Hexagon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);

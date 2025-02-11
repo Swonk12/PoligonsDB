@@ -27,7 +27,7 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             String xsql = $"INSERT INTO Quadrats (id_Poligon, nom, lado) VALUES({id_Poligon}, '{xnom}', {xladoStr})";
             if (xbd.executarOrdre(xsql))
             {
-                MessageBox.Show($"Polígon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Quadrat inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -48,10 +48,10 @@ namespace PoligonsDB.CLASSES.SUBCLASSES
             DataSet xdset = new DataSet();
 
             xsql = $"DELETE FROM Quadrats WHERE id_Poligon={id}";
-            if (bd.executarOrdre(xsql))
+            if (bd.executarOrdre(xsql) == true)
             {
                 xsql = $"DELETE FROM Poligons WHERE id_Poligon={id}";
-                if (bd.executarOrdre(xsql))
+                if (bd.executarOrdre(xsql) == true)
                 {
                     xb = true;
                 }
